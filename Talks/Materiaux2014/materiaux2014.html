@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Thomas Helfer, Jean-Michel Proix, Bruno Michel" />
+  <title>Présentation de MFront: applications aux lois de comportement mecanique et mesure de performance à l'aide de Code-Aster</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+    </style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <style type="text/css">
+      .reveal h1 { font-size: 2.5em; }
+      .reveal section img {
+          border: none;
+          box-shadow: none;
+      }
+      body {
+          background: url("img/background.svg") no-repeat fixed top left
+      }
+      .reveal table {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      .reveal th {
+          vertical-align: middle;
+          font-size: 75%;
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      .reveal td {
+          vertical-align: middle;
+          font-size: 75%;
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      .reveal thead{
+          background-color:lightgrey;
+      }
+      .reveal p {
+        text-align: justify;
+        text-justify: inter-word;
+      }
+       element.style {
+        top: -800px;
+      }
+      .references p {
+        font-size: 50%;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+    </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Présentation de <code>MFront</code>: applications aux lois de comportement mecanique et mesure de performance à l'aide de <code>Code-Aster</code></h1>
+    <h2 class="author">Thomas Helfer, Jean-Michel Proix, Bruno Michel</h2>
+    <h3 class="date">Novembre 2014</h3>
+</section>
+<section id="TOC">
+<ul>
+<li class="fragment"><a href="#/introduction-un-premier-exemple">Introduction : un premier exemple</a><ul>
+<li class="fragment"><a href="#/implantation-dune-loi-de-plasticité-isotrope">Implantation d'une loi de plasticité isotrope</a></li>
+<li class="fragment"><a href="#/interfaces">Interfaces</a></li>
+</ul></li>
+<li class="fragment"><a href="#/mfront-objectifs-et-exemples">MFront: objectifs et exemples</a><ul>
+<li class="fragment"><a href="#/performances-et-capitalisation">Performances et capitalisation</a></li>
+<li class="fragment"><a href="#/quelques-dates">Quelques dates</a></li>
+<li class="fragment"><a href="#/homogénéisation-des-combustibles-nucléaires">Homogénéisation des combustibles nucléaires</a></li>
+<li class="fragment"><a href="#/lois-cristallines">Lois cristallines</a></li>
+<li class="fragment"><a href="#/lois-cristallines-ii">Lois cristallines (II)</a></li>
+<li class="fragment"><a href="#/lois-cristallines-iii">Lois cristallines (III)</a></li>
+</ul></li>
+<li class="fragment"><a href="#/mesure-de-performances">Mesure de performances</a><ul>
+<li class="fragment"><a href="#/exemples">Exemples</a></li>
+<li class="fragment"><a href="#/exemples-ii">Exemples (II)</a></li>
+<li class="fragment"><a href="#/quelques-conclusions">Quelques conclusions</a></li>
+</ul></li>
+<li class="fragment"><a href="#/conclusions">Conclusions</a><ul>
+<li class="fragment"><a href="#/perspectives">Perspectives</a></li>
+<li class="fragment"><a href="#/appel-à-contributions">Appel à contributions</a></li>
+<li class="fragment"><a href="#/références">Références</a></li>
+</ul></li>
+</ul>
+</section>
+
+<section><section id="introduction-un-premier-exemple" class="titleslide slide level1"><h1>Introduction : un premier exemple</h1></section><section id="implantation-dune-loi-de-plasticité-isotrope" class="slide level2">
+<h1>Implantation d'une loi de plasticité isotrope</h1>
+<pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="er">@</span>DSL IsotropicPlasticMisesFlow; <span class="co">//&lt; domain specific language</span>
+<span class="er">@</span>Behaviour Plasticity;          <span class="co">//&lt; name of the behaviour</span>
+<span class="er">@</span>Parameter  H  = <span class="fl">22e9</span>;          <span class="co">//&lt; hardening slope</span>
+<span class="er">@</span>Parameter s0 = <span class="fl">200e6</span>;          <span class="co">//&lt; elasticity limit</span>
+<span class="er">@</span>FlowRule{                      <span class="co">//&lt; flow rule</span>
+  f       = seq-H*p-s0;
+  df_dseq = <span class="dv">1</span>;
+  df_dp   = -H;
+}</code></pre>
+<ul>
+<li class="fragment">formulation <em>spécifique</em>, la surface de charge est définie par: <span class="math">\[\sigma_{\text{eq}} \leq H\,p+\sigma_{0}\]</span></li>
+<li class="fragment">deux «langages» sont dédiés aux schémas d'intégrations explicite (Runge-Kutta) et implicite (voir <a href="#/benchmarks-avec-code-aster">plus loin</a>):
+<ul>
+<li class="fragment">On dispose alors d'un <em>formalisme tensoriel optimisé</em></li>
+<li class="fragment">On traite des lois en <strong>petites ou grandes transformations</strong>, des <strong>modèles de zones cohésives</strong></li>
+<li class="fragment">On a déjà traité des lois d'endommagement, de plasticité, de viscoplasticité, incluant des changements de phases, etc..</li>
+</ul></li>
+</ul>
+</section><section id="interfaces" class="slide level2">
+<h1>Interfaces</h1>
+<figure>
+<img src="img/MFrontPrinciple.svg" />
+</figure>
+<ul>
+<li class="fragment">à partir d'un fichier <em>unique</em>, <code>MFront</code> va générer des sources <em>spécifiques</em> aux différents solveurs</li>
+<li class="fragment">les librairies générées peuvent être appelés depuis:
+<ul>
+<li class="fragment">différents codes aux éléments finis (<em>aujourd'hui</em> <a href="http://www-cast3m.cea.fr"><code>Cast3M</code></a>, <a href="http://www.code-aster.org"><code>Code_Aster</code></a>, <a href="http://www.zset-software.com/products/zebulon"><code>ZeBuLoN</code></a>)</li>
+<li class="fragment">des codes d'homogénéisation par FFT</li>
+<li class="fragment">différents languages (<code>fortran</code>, <code>C</code> ou <code>C++</code>)</li>
+<li class="fragment">la liste est <strong>extensible</strong> !</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="mfront-objectifs-et-exemples" class="titleslide slide level1"><h1>MFront: objectifs et exemples</h1></section><section id="performances-et-capitalisation" class="slide level2">
+<h1>Performances et capitalisation</h1>
+<ul>
+<li class="fragment"><code>MFront</code> a été développé dans le cadre de la simulation des combustibles nucléaires au sein du projet <code>PLEIADES</code> dans un cadre <strong>assurance qualité</strong> strict.</li>
+<li class="fragment"><strong>gérer</strong> et <strong>mutualiser</strong> les connaissances matériau : <em>quel que soit le langage ou la méthode de résolution</em> du code cible :
+<ul>
+<li class="fragment">les propriétés matériau (module d'<code>Young</code> etc...) ;</li>
+<li class="fragment">les lois de comportements mécaniques (viscoplasticité, plasticité, endommagement) ;</li>
+<li class="fragment">les modèles (gonflement, évolution physico-chimique) ;</li>
+</ul></li>
+<li class="fragment"><strong>simplifier</strong> le travail des utilisateurs:
+<ul>
+<li class="fragment">temps d'implantation réduit</li>
+<li class="fragment">minimum de détails informatique ou numérique</li>
+</ul></li>
+<li class="fragment"><strong>atteindre</strong> des <em>performances compatibles avec des besoins industriels</em> ;</li>
+</ul>
+</section><section id="quelques-dates" class="slide level2">
+<h1>Quelques dates</h1>
+<ul>
+<li class="fragment">2006 : début du développement de <code>MFront</code></li>
+<li class="fragment">2009 : intégration à la plate-forme <code>PLEIADES</code></li>
+<li class="fragment">2013 : début du benchmark par l'équipe de <code>Code-Aster</code></li>
+<li class="fragment">2014 : mise en open-source de <code>MFront</code></li>
+</ul>
+</section><section id="homogénéisation-des-combustibles-nucléaires" class="slide level2">
+<h1>Homogénéisation des combustibles nucléaires</h1>
+<figure>
+<img src="img/Largenton.png" />
+</figure>
+<ul>
+<li class="fragment">Amas plutonifère dans une matrice uraninifère:
+<ul>
+<li class="fragment">NTFA (Michel et al., Roussette et al.): , Largenton et al.</li>
+<li class="fragment">MOX 2 phases et MOX 3 phases: Ricaud et al.</li>
+</ul></li>
+<li class="fragment">Effet de la porosité:
+<ul>
+<li class="fragment">viscoplastique compressible (Michel et al.,Monerie et al.): Salvo et al.</li>
+</ul></li>
+</ul>
+</section><section id="lois-cristallines" class="slide level2">
+<h1>Lois cristallines</h1>
+<figure>
+<img src="img/Soulacroix.png" />
+</figure>
+<ul>
+<li class="fragment"><em>Approche micromécanique du comportement du combustible nucléaire</em>. J. Soulacroix. Soutenance de thèse :
+<ul>
+<li class="fragment">voir la présentation <em>Microfissuration induite par la viscoplasticité dans les céramiques nucléaires</em> par B Michel ;</li>
+</ul></li>
+</ul>
+</section><section id="lois-cristallines-ii" class="slide level2">
+<h1>Lois cristallines (II)</h1>
+<figure>
+<img src="img/convergence-final.svg" />
+</figure>
+<ul>
+<li class="fragment"><em>Modélisation de la fissuration inter-granulaire par corrosion sous contraintes pour les aciers inoxydables</em>. T. Couvant, S. Meunier, D. Haboussa, J.-M. Proix. Présentation à la journée des Utilisateurs de <code>Salome-Meca</code> et <code>Code_Aster 2014</code> ;</li>
+</ul>
+</section><section id="lois-cristallines-iii" class="slide level2">
+<h1>Lois cristallines (III)</h1>
+<ul>
+<li class="fragment"><em>Quelques exemples d’utilisation de lois de comportement en grandes déformations générées avec l’outil <code>MFront</code></em>. J. Hure, M. Callahan, C. Ling, B. Tanguy, T. Helfer. Club <code>Cast3M</code> 2014.</li>
+</ul>
+</section></section>
+<section><section id="mesure-de-performances" class="titleslide slide level1"><h1>Mesure de performances</h1></section><section id="exemples" class="slide level2">
+<h1>Exemples</h1>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 20%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Algorithme</th>
+<th style="text-align: center;">Temps CPU total (<code>Aster</code> vs <code>MFront</code>)</th>
+<th style="text-align: center;">Illustration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Visco-plastic and damaging for steel <span class="citation" data-cites="mustata_creep_2005 edf_comportement_2012">(Mustata and Hayhurst 2005; EDF 2012)</span></td>
+<td style="text-align: center;"><code>Implicit</code></td>
+<td style="text-align: center;"><span class="math">\(17mn 43s\)</span> vs <span class="math">\(7mn 58s\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img2.png" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Damaging for concrete <span class="citation" data-cites="mazars_new edf_modeendommagement_2013">(Mazars and Hamon; EDF 2013a)</span></td>
+<td style="text-align: center;"><code>Default</code></td>
+<td style="text-align: center;"><span class="math">\(45mn\)</span> vs <span class="math">\(63mn\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img3.png" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Generic Single crystal viscoplasticity <span class="citation" data-cites="meric_single_1991 edf_comportements_2013-1">(Méric and Cailletaud 1991; EDF 2013b)</span></td>
+<td style="text-align: center;"><code>Implicit</code></td>
+<td style="text-align: center;"><span class="math">\(28mn\)</span> vs <span class="math">\(24mn\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img5.png" /></td>
+</tr>
+</tbody>
+</table>
+</section><section id="exemples-ii" class="slide level2">
+<h1>Exemples (II)</h1>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 20%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Algorithme</th>
+<th style="text-align: center;">Temps CPU</th>
+<th style="text-align: center;">Illustration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">FCC single crystal viscoplasticity <span class="citation" data-cites="monnet_orowan_2011">(Monnet, Naamane, and Devincre 2011 <span class="citation" data-cites="edf_comportements_2013-1">EDF (2013b)</span>)</span></td>
+<td style="text-align: center;"><code>Implicit</code></td>
+<td style="text-align: center;"><span class="math">\(33m54s\)</span> vs <span class="math">\(29m30s\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img6.png" /></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FCC homogeneized polycrystals 30 grains <span class="citation" data-cites="berveiller_extension_1978 edf_comportements_2013-1">(Berveiller and Zaoui 1978; EDF 2013b)</span></td>
+<td style="text-align: center;"><code>Runge-Kutta 4/5</code></td>
+<td style="text-align: center;"><span class="math">\(9s67\)</span> vs <span class="math">\(8s22\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img8.png" /></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Anisotropic creep with phase transformation <span class="citation" data-cites="edf_modecomportement_2013">(EDF 2013c)</span></td>
+<td style="text-align: center;"><code>Implicit</code></td>
+<td style="text-align: center;"><span class="math">\(180s\)</span> vs <span class="math">\(171s\)</span></td>
+<td style="text-align: center;"><img src="img/Behaviour-img9.png" /></td>
+</tr>
+</tbody>
+</table>
+</section><section id="quelques-conclusions" class="slide level2">
+<h1>Quelques conclusions</h1>
+<p>Ces différents tests permettent de dresser les tendances suivantes :</p>
+<ul>
+<li class="fragment">les implantations natives sont plus rapides et plus robustes:
+<ul>
+<li class="fragment">pour les lois explicites (Mazars,etc ...)</li>
+<li class="fragment">pour celles dont l'intégration se résume à la résolution d'une équation scalaire non linéaire (méthode de Brent <span class="citation" data-cites="brent_algorithms_1973">(voir Brent 1973)</span>).</li>
+</ul></li>
+<li class="fragment">Pour des lois plus complexes:
+<ul>
+<li class="fragment"><code>MFront</code> est aussi ou plus efficace que des lois natives</li>
+<li class="fragment">les algorithmes disponibles permettent une plus grande robustesse (<code>Powell</code> dogleg, <code>Levenberg-Marquardt</code>, etc..).</li>
+</ul></li>
+<li class="fragment">Pour une loi donnée, le temps de développement est significativement plus court avec <code>MFront</code>.</li>
+</ul>
+</section></section>
+<section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section><section id="perspectives" class="slide level2">
+<h1>Perspectives</h1>
+<ul>
+<li class="fragment">coté <code>MFront</code>:
+<ul>
+<li class="fragment">toujours plus simple, plus performant, plus robuste etc...</li>
+<li class="fragment">toujours plus de tests unitaires (plus de 600 actuellement)</li>
+<li class="fragment">support de nouveaux solveurs</li>
+</ul></li>
+<li class="fragment">lien avec l'identification de paramètres
+<ul>
+<li class="fragment"><code>MFront</code> + <code>MTest</code> (simulation d'un point matériel) et <code>Adao</code></li>
+<li class="fragment"><code>MTest</code> et <code>Matlab</code></li>
+</ul></li>
+<li class="fragment">coté code appelant, <code>MFront</code> permet de simplifier la mise en donnée
+<ul>
+<li class="fragment">travaux en cours coté <code>Code-Aster</code>, <code>Cyrano3</code>, etc..</li>
+</ul></li>
+</ul>
+</section><section id="appel-à-contributions" class="slide level2">
+<h1>Appel à contributions</h1>
+<figure>
+<img src="img/WebSite.png" />
+</figure>
+<ul>
+<li class="fragment"><code>MFront</code> a été mise en open-source (GPL,CECILL-A) en Octobre 2014: <a href="http://tfel.sourceforge.net">http://tfel.sourceforge.net</a></li>
+<li class="fragment">Nous invitons toutes les personnes intéressées à tester <code>MFront</code>, contribuer, créer une communauté, etc...</li>
+<li class="fragment">Merci pour votre attention</li>
+</ul>
+</section><section id="références" class="slide level2">
+<h1>Références</h1>
+<!-- pandoc -s -f markdown+tex_math_single_backslash --toc --toc-depth=1 --bibliography=bibliography.bib --filter pandoc-citeproc --slide-level 2 --mathjax -t revealjs -V theme:beige -H mysettings.css -A reveal-config.html --default-image-extension=svg --mathjax=MathJax-2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML mfront.md -o mfront.html -->
+<!-- pandoc -s -f markdown+tex_math_single_backslash --toc --toc-depth=1 --bibliography=bibliography.bib --filter pandoc-citeproc --slide-level 2 -i  -t beamer -V theme:cea2012 --default-image-extension=pdf mfront.md -o mfront.pdf -->
+
+
+<div class="references">
+<p>Berveiller, M., and A. Zaoui. 1978. “An Extension of the Self-Consistent Scheme to Plastically-Flowing Polycrystals.” <em>Journal of the Mechanics and Physics of Solids</em> 26 (5–6): 325–44. doi:<a href="http://dx.doi.org/10.1016/0022-5096(78)90003-0">10.1016/0022-5096(78)90003-0</a>.</p>
+<p>Brent, Richard P. 1973. <em>Algorithms for Minimization Without Derivatives</em>. Dover Publications.</p>
+<p>EDF. 2012. <em>Comportement Viscoplastique Avec Endommagement de Hayhurst</em>. Référence du Code Aster R5.03.13 révision : 8886. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org">http://www.code-aster.org</a>.</p>
+<p>———. 2013a. <em>Modèle d’endommagement de Mazars</em>. Référence du Code Aster R7.01.08 révision : 10461. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org">http://www.code-aster.org</a>.</p>
+<p>———. 2013b. <em>Comportements Élastoviscoplastiques Mono et Polycristallins</em>. Référence du Code Aster R5.03.11 révision : 10623. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org">http://www.code-aster.org</a>.</p>
+<p>———. 2013c. <em>Modèle de Comportement Élasto-Visqueux META_LEMA_ANI Avec Prise En Compte de La Métallurgie Pour Les Tubes de Gaine Du Crayon Combustible</em>. Documentation du Code-Aster R4.04.05. EDF-R&amp;D/AMA. <a href="http://www.code-aster.org">http://www.code-aster.org</a>.</p>
+<p>Mazars, J., and François Hamon. “A New Strategy to Formulate a 3D Damage Model for Concrete Under Monotonic, Cyclic and Severe Loadings.” <em>Engineering Structures</em>.</p>
+<p>Méric, L., and Georges Cailletaud. 1991. “Single Crystal Modelling for Structural Calculations.” <em>Journal of Engineering Material and Technology</em> 113 (January): 171–82.</p>
+<p>Monnet, G., S. Naamane, and B. Devincre. 2011. “Orowan Strengthening at Low Temperatures in Bcc Materials Studied by Dislocation Dynamics Simulations.” <em>Acta Materialia</em> 59 (2): 451–61. doi:<a href="http://dx.doi.org/10.1016/j.actamat.2010.09.039">10.1016/j.actamat.2010.09.039</a>.</p>
+<p>Mustata, R., and D. R. Hayhurst. 2005. “Creep Constitutive Equations for a 0.5Cr 0.5 Mo 0.25V Ferritic Steel in the Temperature Range 565 <span class="math">\(\mbox{}^{}\)</span>C - 675 <span class="math">\(\mbox{}^{}\)</span>C.” <em>International Journal of Pressure Vessels and Piping</em> 82 (5): 363–72. doi:<a href="http://dx.doi.org/10.1016/j.ijpvp.2004.11.002">10.1016/j.ijpvp.2004.11.002</a>.</p>
+</div>
+</section></section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'beige', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    <script>
+  Reveal.initialize({
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 850,
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.2,
+  // Transition style
+  transition: 'linear' // default/cube/page/concave/zoom/linear/fade/none
+  });
+  </script>
+    </body>
+</html>
