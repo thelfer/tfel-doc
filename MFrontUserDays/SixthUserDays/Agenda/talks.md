@@ -1,5 +1,5 @@
 ---
-title: Agenda of the fifth MFront User Meeting
+title: Agenda of the sixth MFront User Meeting
 author: Thomas Helfer
 date: 25/11/2020
 toc: true
