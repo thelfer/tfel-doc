@@ -394,6 +394,11 @@ Thomas Helfer is an engineer at CEA in the Fuel Simulation Laboratory at
 Cadarache, France and the main developer of `TFEL/MFront` and `MGIS`.
 <https://www.researchgate.net/profile/Thomas_Helfer>.
 
+Jérémy Bleyer is an engineer from Corps des Ponts, des Eaux et des
+Forêts. He is a researcher at Laboratoire Navier (ENPC-Université
+Gustave Eiffel-CNRS), lecturer at Ecole des Ponts ParisTech and
+part-time professor at Ecole Polytechnique.
+
 Goustan Bacquaert is a PhD student working at EDF Lab Paris-Saclay,
 supervised by the École des Ponts PariTech and the Sorbonne Université.
 His work focuses on the modelling of soil behaviours, both theoretically
