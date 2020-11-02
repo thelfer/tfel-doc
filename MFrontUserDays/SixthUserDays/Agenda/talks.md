@@ -426,4 +426,9 @@ key contributor to the finite element library `MoFEM`. His current
 research interest lies in plasticity and contact mechanics for
 incremental cold flow forming simulations.
 
+Eric Simo is a project manager in the Research and Development
+Department of BGE and responsible for the development of new
+constitutive material models for safety assessment of repository
+systems.
+
 # References
