@@ -48,6 +48,9 @@ csl: iso690-numeric-en.csl
 
 # Implementing geomechanical models in `MFront`/`OpenGeoSys` for hydrogeological applications
 
+![Foundation problem under gravity: Comparison of the Mohr-Coulumb model and the
+modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_epsQ.pdf "")
+
 - Christian B. Silbermann
   - TU Bergakademie Freiberg, Freiberg, Germany.
 - Dominik Kern
@@ -95,14 +98,14 @@ csl: iso690-numeric-en.csl
 
 - David Siedel
   - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
-  - CEA Saclay, ISAS/DES/DMN2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
+  - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
 - Thomas HELFER
   - CEA Cadarache, ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Olivier FANDEUR
   - CEA Saclay, ISAS/DES/DMN2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
-  - IMSIA, UMR 8193, CNRS-EDF-CEA-ENSTA.
+  - IMSIA, UMR 9219, CNRS-EDF-CEA-ENSTA Paris.
 - Nicolas Pignet
   - EDF R&D, 
 - Jacques BESSON
