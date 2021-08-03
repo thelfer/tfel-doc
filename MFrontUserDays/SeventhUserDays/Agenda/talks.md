@@ -60,6 +60,23 @@ modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_ep
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 
+# Validation and performance of Cosserat media in small deformation
+
+![Results obtained for a torsion Test a) Comparison with the analytical
+solution in elasticity￼. b) Magnitude of the rotation of the
+microstructure](img/CosseratResults.png "")
+
+- Tamara Dancheva
+  -  Basque Center for Applied Mathematics
+- Raffaele Russo
+  - University of the Basque Country
+- Flavien Ghiglione
+  - MINES ParisTech
+- Unai Alonso
+  - University of the Basque Country
+- Michael Barton
+  - Basque Center for Applied Mathematics
+
 # `MFront`, `code_aster` and wood: mechanical behaviors for structural applications and cultural heritage conservation.
 
 ![Modelling of Drying schrinkage of wood with `code_aster` and `MFront`](img/WoodViscelasticity.jpg ""){width=80%}
