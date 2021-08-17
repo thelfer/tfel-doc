@@ -61,7 +61,7 @@ csl: iso690-numeric-en.csl
 # Implementing geomechanical models in `MFront`/`OpenGeoSys` for hydrogeological applications
 
 ![Foundation problem under gravity: Comparison of the Mohr-Coulumb model and the
-modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_epsQ.pdf "")
+modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_epsQ.png "")
 
 - Christian B. Silbermann
   - TU Bergakademie Freiberg, Freiberg, Germany.
