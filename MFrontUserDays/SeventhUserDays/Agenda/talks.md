@@ -22,6 +22,18 @@ csl: iso690-numeric-en.csl
 
 - Thomas Helfer
 
+# A novel approach of using existing implementations of constitutive material models in any numerical code interfacing with `MFront`
+
+![Vertical displacement after the excavation of a gallery in a clay formation using an advanced hypoplastic model](img/PlaxisVsOpenGeoSys.png)
+
+- Eric Simo
+  - BGE Technology, Germany
+- Thomas Helfer (CEA)
+  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+- Thomas Nagel
+  - TU Bergakademie Freiberg, Freiberg, Germany.
+- David Mašín
+  - Charles University in Prague Faculty of Science Albertov 6, 128 43 Prague 2, Czech Republic 
 
 # Implementation of a coupled thermo-elasto-viscoplastic polycrystalline finite element model using `FEniCS` (`mgis.fenics`) and `MFront`
 
@@ -90,7 +102,7 @@ microstructure](img/CosseratResults.png "")
 
 # Modélisation du freinage à partir d’une formulation thermomécanique
 
-![Modélisation du freinage avec `code_aster` et `MFront`](img/Braking.pdf ""){width=80%}
+![Modélisation du freinage avec `code_aster` et `MFront`](img/Braking.png ""){width=80%}
 
 - Thierry Ndzana Satoh
   - LMGC UMR5508 CNRS, Université de Montpellier, Montpellier, France.
