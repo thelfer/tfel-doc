@@ -22,6 +22,58 @@ csl: iso690-numeric-en.csl
 
 - Thomas Helfer
 
+# Development of a Novel Damage Model for Concrete Subjected to Creep
+
+- Alexandre Gangnant
+  - Sixense necs, Sceaux, France 
+- Michel Sagno
+  - Sixense necs, Sceaux, France 
+- Jefri Draup
+  - EDF Energy R&D UK Centre, Manchester, UK 
+- Thomas Helfer
+  - CEA, DEN/DEC/SESC, Département d’Études des Combustibles, France 
+
+Concrete exhibits visco-plastic behaviour when subjected to high
+temperature whilst supporting an external load; this component of
+plasticity is referred to as load induced thermal strain (LITS), which
+is also known as transient thermal creep (TTC). LITS phenomena can be
+important in pre-stressed concrete structures. Indeed, this can
+potentially lead to a loss in pre-stress, and also residual tensile
+stress development under transient thermal conditions. Hence, structures
+which have been subjected to a high temperature thermal loading cycle
+may experience cracking and subsequent loss of rigidity; this could
+ultimately lead to a loss of functionality or even structural failure.
+In addition to that, under pre-stressed structures, basic creep effects
+might be observed in concrete and could contribute to the failure .
+
+Thus, in a process of catching physical & mechanical phenomena that
+could occur during the lifetime of a concrete structure (e.g.
+Pre-stressed concrete vessel of an AGR), a novel model has been
+developed in order to take into account the damage, creep and LITS
+phenomena.
+
+Firstly, a damage model (named FLB based on Mazars) coupled with LITS
+model has been developed using Mfront and tested. Secondly, basic creep
+has been added to this initial constitutive law. This latter coupled
+model is based on simple viscoelastic creep model (Burger) in a
+framework a quasi-brittle material such as concrete. The constitutive
+behaviour is coupled to the damage law via the total stress tensor. By
+decomposing the elastic, creep and thermal strains, the damage evolution
+is driven from the elastic strains and in a proportion of creep strains.
+Finally, the effective stress is computed and used to obtain the total
+stress at each iteration with unilateral effect (rigidity recovery due
+to crack closure) included.
+
+This type of model is most suitable for fully implicit integration
+schemes and will allow more accurate assessment of structural damage
+from transient thermal events, such as fire. This work is only based on
+the coupling damage and creep where thermal effect has been disabled on
+purpose.
+
+![Evolution of creep stains & damage under constant load followed by an
+unloading by applying the new developed damage creep model](img/ConcreteBehaviour.png)
+
+
 # A novel approach of using existing implementations of constitutive material models in any numerical code interfacing with `MFront`
 
 ![Vertical displacement after the excavation of a gallery in a clay formation using an advanced hypoplastic model](img/PlaxisVsOpenGeoSys.png)
