@@ -98,10 +98,12 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
 - Manas Upadhyay
   - Laboratoire de Mécanique des Solides (LMS), CNRS UMR 7649, Ecole Polytechnique, Institut Polytechnique de Paris, 91128 Palaiseau Cedex, France
 
-# Implémentation sur `MFront` d’un modèle d’homogénéisation visco-élastique linéaire non-vieillissant pour l’étude du phénomène de fluage d’irradiation des gaines de zirconium. 
+# Implementation of a polycristalline model to simulate the radiation induced deformation of Zircaloy cladding tubes using the MFront code generation tool
 
 ![""](img/ZircaloyHomogeneization.png)
 
+- Cécilia Gicquel
+  - CEA Saclay ISAS/DES/DMN/SRMA/LA2M, 91191 Gif-sur-Yvette cedex.
 - Renald Brenner
   - CNRS, d'Alembert
 - Renaud Masson
@@ -109,6 +111,23 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
     France.
 - Fabien Onimus
   - CEA Saclay ISAS/DES/DMN/SRMA/LA2M, 91191 Gif-sur-Yvette cedex.
+
+
+The aim of this work is to implement a polycrystalline model in the
+MFront code generation tool to simulate the radiation induced
+deformation of cladding tubes made of Zircaloy. Thanks to Mandel’s
+correspondence principle [@mandel_mecanique_1966] and thanks to an
+internal variables formulation derived by Ricaud and Masson
+[@ricaud_effective_2009], equivalent to Schapery’s collocation method
+[@schapery_approximate_1962], the self-consistent scheme
+[@kroner_self-consistent_2001] is applied to determine the behaviour of
+a non-ageing, linear viscoelastic polycrystal. The coefficients of the
+model are calibrated using the experimental data from Soniak et al.
+[@soniak_irradiation_2002]. The numerical simulation is then compared,
+at the macroscopic and at the local scale, with the quasi-elastic
+approach developed by Brenner et al. [@brenner_quasi-elastic_2002] and
+adapted to in-reactor deformation by Onimus et al.
+[@onimus_polycrystalline_2021].
 
 # Implementing geomechanical models in `MFront`/`OpenGeoSys` for hydrogeological applications
 
