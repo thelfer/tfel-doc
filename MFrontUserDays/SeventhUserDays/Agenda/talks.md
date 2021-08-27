@@ -300,7 +300,8 @@ providing an attractive numerical cost.
 
 Generic implementations of the HHO method have been developped in `C++`
 ([`Disk++` project](https://github.com/wareHHOuse/diskpp) project,
-`CERMICS`) and in `Python` ([`H2O` project](), CEA/MinesParisTech) to
+`CERMICS`) and in `Python` ([`H2O`
+project](https://github.com/davidsiedel/h2o ), CEA/MinesParisTech) to
 solve non- linear mechanics problems. Both implementations can use
 `MFront` generated behaviour through `MGIS`. The method has also been
 introduced in industrial solvers [`code_aster`](https://code-aster.org/)
