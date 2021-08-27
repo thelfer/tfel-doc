@@ -18,9 +18,29 @@ bibliography: bibliography.bib
 csl: iso690-numeric-en.csl
 ---
 
-# Overview of `TFEL-4.0`.
+# Overview of `TFEL-4.0` and `MGIS-2.0`.
 
 - Thomas Helfer
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+
+This talk will:
+
+- Present arious applications of `MFront` during the past year which are not
+  described in the other talks.
+- Discuss some new features of Version 4.0 of the [`TFEL`
+  project](http://tfel.sourceforge.net) and Version 2.0 of `MGIS`.
+
+Both projects are now based on the `C++-17` standard.
+
+As a consequence, the `TFEL/Math` library have been deeply overhauled.
+From the end user point of view, the library:
+
+- better handles quantities, i.e. values with units, allowing the
+  compiler to perform dimensional analysis.
+- supports higher order objects.
+
+Quantities are now supported by the implicit domain specific languages
+(DSLs) of `MFront` and the DSL dedicated to material properties.
 
 # Development of a Novel Damage Model for Concrete Subjected to Creep
 
@@ -31,7 +51,7 @@ csl: iso690-numeric-en.csl
 - Jefri Draup
   - EDF Energy R&D UK Centre, Manchester, UK 
 - Thomas Helfer
-  - CEA, DEN/DEC/SESC, Département d’Études des Combustibles, France 
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 
 Concrete exhibits visco-plastic behaviour when subjected to high
 temperature whilst supporting an external load; this component of
@@ -73,7 +93,6 @@ purpose.
 ![Evolution of creep stains & damage under constant load followed by an
 unloading by applying the new developed damage creep model](img/ConcreteBehaviour.png)
 
-
 # A novel approach of using existing implementations of constitutive material models in any numerical code interfacing with `MFront`
 
 ![Vertical displacement after the excavation of a gallery in a clay formation using an advanced hypoplastic model](img/PlaxisVsOpenGeoSys.png)
@@ -81,7 +100,7 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
 - Eric Simo
   - BGE Technology, Germany
 - Thomas Helfer (CEA)
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 - David Mašín
@@ -94,7 +113,7 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
 - Jérémy Bleyer
   - Laboratoire Navier, CNRS UMR 8205, ENPC, Univ Gustave Eiffel, F-77447 Marne-la-Vallée, France
 - Thomas Helfer
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Manas Upadhyay
   - Laboratoire de Mécanique des Solides (LMS), CNRS UMR 7649, Ecole Polytechnique, Institut Polytechnique de Paris, 91128 Palaiseau Cedex, France
 
@@ -107,8 +126,7 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
 - Renald Brenner
   - CNRS, d'Alembert
 - Renaud Masson
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LM2C, 13 108 St Paul lez Durance,
-    France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Fabien Onimus
   - CEA Saclay ISAS/DES/DMN/SRMA/LA2M, 91191 Gif-sur-Yvette cedex.
 
@@ -143,6 +161,37 @@ modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_ep
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 
+In order to properly simulate complex hydrogeological processes it is
+crucial to reasonably capture the mechanical behavior of the solid soil
+constituents (solid grains/solid skeleton). Mechanically speaking, a
+constitutive relation is needed for the calculation of the effective
+stress tensor. Therefore, a variety of elasto-plastic (geo)mechanical
+material models is available in literature, such as the very basic
+von-Mises model and the more advanced Mohr-Coulomb and Cambridge (Cam)
+clay model.
+
+The Cambridge (Cam) clay model describes the stress-dependent
+deformation behaviour of cohesive soils. Thereby, effects like,
+elasto-plastic deformation, irreversible (plastic) pore compaction,
+hardening and softening, consolidation, different loading and unloading
+stiffness can be considered. The goal of this work is a consistent and
+clear presentation of the basic modified Cam clay model ready for
+implementation and practical use in continuum mechanical simulations
+using FEM. Here, the material model interface `MFront` is used.
+
+Typical applications for these models are the calculation of soil
+strata, for example in geomechanical simulations. This talk describes
+the implementation of several material models for small strains in the
+open-source multi-field software
+[`OpenGeoSys`](https://www.opengeosys.org/) based on `MFront`. For this,
+the set of constitutive equations is outlined and summarized. Implicit
+numerical solution schemes are presented and the implementation is
+outlined briefly. Then, numerical studies are presented for typical
+hydrogeological and geotechnical applications demonstrating significant
+differences with respect to the chosen material model. This may be
+especially important when it comes to localized deformation leading to
+ground/foundation failure.
+
 # Validation and performance of Cosserat media in small deformation
 
 ![Results obtained for a torsion Test a) Comparison with the analytical
@@ -159,6 +208,25 @@ microstructure](img/CosseratResults.png "")
   - University of the Basque Country
 - Michael Barton
   - Basque Center for Applied Mathematics
+
+In this talk, we will dive into the implementation and performance of a
+Generalized Continua-based model, more specifically within the framework
+of Cosserat media [@cosserat1909theorie]. We aim to use this model for
+simulating the realistic behaviour of metal alloys during the process of
+machining (a material removal process during which the material
+undergoes severe plastic deformation). We developed this model using the
+open-source FEM framework [`FEniCS`](https://fenicsproject.org/) and
+`TFEL/MFront` using the
+[`mgis.fenics`](https://thelfer.github.io/mgis/web/mgis_fenics.html)
+module [@bleyer_overview_2020]).
+
+We present our work on the validation and performance of the elastic and
+elastoplastic model ([@forest2003elastoviscoplastic],
+[@russo2020thermomechanics]) in small deformation for a representative
+test case i.e. torsion test of a cylindrical specimen, by comparing the
+results from [FEniCS](https://fenicsproject.org/) and TFEL/MFront with
+the analytical/semi-analytical solution and a solution obtained with the
+ZSet framework, using the solver Zebulon.
 
 # `MFront`, `code_aster` and wood: mechanical behaviors for structural applications and cultural heritage conservation.
 
@@ -186,25 +254,25 @@ microstructure](img/CosseratResults.png "")
 # Neural network based constitutive models implemented using TensorFlow inside `MFront`
 
 - Marius Duvillard
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Loïc Giraldi
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Thomas Helfer
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 
 # The Hybrid High Order method in nonlinear solid mechanics with `MFront` and `MGIS`
 
 ![Comparison of the hydrostatic pressure computed using the Hybrid High Order (HHO) method and standard finite elements](img/HHO.png ""){width=80%}
 
 - David Siedel
-  - CEA Cadarache ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
   - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
 - Thomas HELFER
-  - CEA Cadarache, ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Olivier FANDEUR
-  - CEA Saclay, ISAS/DES/DMN2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
+  - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - IMSIA, UMR 9219, CNRS-EDF-CEA-ENSTA Paris.
 - Nicolas Pignet
   - EDF R&D, 
@@ -212,11 +280,44 @@ microstructure](img/CosseratResults.png "")
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
 
+The standard finite element method suffers from volumetric locking when
+nearly- incompressible materials are considered, leading to spurious
+oscillations of the hydrostatic pressure. In order to circumvent this
+phenomenon, the recent HHO (Hybrid High Order)
+[@abbas_hybrid_2018;@abbas_hybrid_2019] method is considered. This
+method has several advantages over standard finite elements:
+
+- It is robust to volumetric locking phenomena in primal formulation.
+- Polyhedral elements are natively supported.
+- The displacements and the strains have the same approximation order.
+
+The HHO method is hybrid as it introduces cell displacement unknowns and
+faces displacement unknowns which live on the cell boundaries. In the
+spirit of discontinouous Galerkin methods, displacement can be
+discontinuous at the cell boundary. Cell unknowns are local and can be
+condensated during the Newton iterations at the structural scale, hence
+providing an attractive numerical cost.
+
+Generic implementations of the HHO method have been developped in `C++`
+([`Disk++` project](https://github.com/wareHHOuse/diskpp) project,
+`CERMICS`) and in `Python` ([`H2O` project](), CEA/MinesParisTech) to
+solve non- linear mechanics problems. Both implementations can use
+`MFront` generated behaviour through `MGIS`. The method has also been
+introduced in industrial solvers [`code_aster`](https://code-aster.org/)
+and [`Cast3M`](http://www-cast3m.cea.fr/).
+
+In this presentation, we show the robustness of the HHO method to
+volumetric locking, using non-linear behaviour laws in finite
+transformations. Moreover, we show that using the HHO method polyhedral
+support feature, crystalline plasticity laws can be expressed at the at
+the element level, with a direct correspondence between a Voronoï cell
+and an HHO polyhedral element in the mesh.
+
 # The `MFEM-MGIS` project: coupling of `MFEM` and MGIS for High Performance non linear simulations
 
 - Guillaume Latu
-  - CEA Cadarache, ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Thomas HELFER
-  - CEA Cadarache, ISRENE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 
 # References
