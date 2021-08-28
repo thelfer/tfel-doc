@@ -45,11 +45,11 @@ Quantities are now supported by the implicit domain specific languages
 # Development of a Novel Damage Model for Concrete Subjected to Creep
 
 - Alexandre Gangnant
-  - Sixense necs, Sceaux, France 
+  - Sixense necs, Sceaux, France
 - Michel Sagno
-  - Sixense necs, Sceaux, France 
+  - Sixense necs, Sceaux, France
 - Jefri Draup
-  - EDF Energy R&D UK Centre, Manchester, UK 
+  - EDF Energy R&D UK Centre, Manchester, UK
 - Thomas Helfer
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 
@@ -104,7 +104,7 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 - David Mašín
-  - Charles University in Prague Faculty of Science Albertov 6, 128 43 Prague 2, Czech Republic 
+  - Charles University in Prague Faculty of Science Albertov 6, 128 43 Prague 2, Czech Republic
 
 # Implementation of a coupled thermo-elasto-viscoplastic polycrystalline finite element model using `FEniCS` (`mgis.fenics`) and `MFront`
 
@@ -147,7 +147,7 @@ approach developed by Brenner et al. [@brenner_quasi-elastic_2002] and
 adapted to in-reactor deformation by Onimus et al.
 [@onimus_polycrystalline_2021].
 
-# Implementing geomechanical models in `MFront`/`OpenGeoSys` for hydrogeological applications
+# Implementing geomechanical models in `MFront`/`OpenGeoSys` for hydrogeological and geotechnical applications
 
 ![Foundation problem under gravity: Comparison of the Mohr-Coulumb model and the
 modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_epsQ.png "")
@@ -161,36 +161,36 @@ modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_ep
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 
-In order to properly simulate complex hydrogeological processes it is
-crucial to reasonably capture the mechanical behavior of the solid soil
-constituents (solid grains/solid skeleton). Mechanically speaking, a
+In order to properly simulate complex hydrogeological or geotechnical processes it is
+crucial to reasonably capture the mechanical behavior of the geomaterials
+(soils or rocks, specifically). Mechanically speaking, a
 constitutive relation is needed for the calculation of the effective
-stress tensor. Therefore, a variety of elasto-plastic (geo)mechanical
-material models is available in literature, such as the very basic
-von-Mises model and the more advanced Mohr-Coulomb and Cambridge (Cam)
-clay model.
+stress tensor as part of the constitutive closing of the thermo-hydro-mechanical
+models used. Therefore, a variety of inelastic (geo)mechanical
+material models is available in literature, such as the basic and more generally
+applicable Mohr-Coulomb and Cambridge (Cam) clay models along with more advanced
+models for specific materials and applications such as models for rock failure in
+the brittle-ductile transition or for creep in rock salt formations.
 
-The Cambridge (Cam) clay model describes the stress-dependent
-deformation behaviour of cohesive soils. Thereby, effects like,
-elasto-plastic deformation, irreversible (plastic) pore compaction,
-hardening and softening, consolidation, different loading and unloading
-stiffness can be considered. The goal of this work is a consistent and
-clear presentation of the basic modified Cam clay model ready for
-implementation and practical use in continuum mechanical simulations
-using FEM. Here, the material model interface `MFront` is used.
+Many formulations have in comman that they need to capture effects like
+elasto-plastic deformation, irreversible (plastic) pore compaction / consolidation,
+hardening and softening, different loading and unloading
+stiffness, and temperature dependence. The goal of this work is to highlight recent
+implementations of geomechanical models in `MFront`/`OpenGeoSys`, such as
 
-Typical applications for these models are the calculation of soil
-strata, for example in geomechanical simulations. This talk describes
-the implementation of several material models for small strains in the
-open-source multi-field software
+- a consistent and clear presentation of the basic modified Cam clay model for
+cohesive soils
+- models for primary, secondary and tertiary creep of rock salt
+- rock mechanical models at temperatures and pressures spanning the brittle-ductile
+transition
+
+This talk describes the implementation of several material models for small strains
+in the open-source multi-field finite element software
 [`OpenGeoSys`](https://www.opengeosys.org/) based on `MFront`. For this,
-the set of constitutive equations is outlined and summarized. Implicit
-numerical solution schemes are presented and the implementation is
-outlined briefly. Then, numerical studies are presented for typical
-hydrogeological and geotechnical applications demonstrating significant
-differences with respect to the chosen material model. This may be
-especially important when it comes to localized deformation leading to
-ground/foundation failure.
+the set of constitutive equations and their implementation are outlined. Then,
+exemplary numerical studies are presented for typical hydrogeological and geotechnical
+applications demonstrating significant differences with respect to the chosen material
+model.
 
 # Validation and performance of Cosserat media in small deformation
 
@@ -275,7 +275,7 @@ ZSet framework, using the solver Zebulon.
   - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - IMSIA, UMR 9219, CNRS-EDF-CEA-ENSTA Paris.
 - Nicolas Pignet
-  - EDF R&D, 
+  - EDF R&D,
 - Jacques BESSON
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
