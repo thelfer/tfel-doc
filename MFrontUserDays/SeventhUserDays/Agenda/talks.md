@@ -343,24 +343,33 @@ the material laws.
 More recently, different kind of data-driven models were introduced with
 the use of AI, more specifically neural networks [@mehdi_pouragha_2020],
 or by a minimization problem in the phase space
-[@kirchdoerfer_ortiz_2015]. In the first case, neural networks allow to
+[@kirchdoerfer_ortiz_2016]. In the first case, neural networks allow to
 easily fit the material behavior without strong mathematical *a priori*.
 Moreover, it has been proved that feedforward neural networks are
 universal approximators [@hornik_1989], thus they could characterize
 complex material behaviors.
 
-However, neural network model needs to be trained with a large amount of
-data, and do not ensure physical consistency.
+This talk presents different neural network based constitutive models
+instead of traditional constitutive law formulations. Neural networks
+enable to fit the material behavior with an expressive class of
+functions. The neural network models are directly trained on a synthetic
+dataset of random load tests in order to find a suitable representation
+of the material behavior.
 
-In this talk, we present the development of different kind of neural
-network architecture for constitutive modelling and their integration in
-the `MFront` Framework. We generate data from a nonlinear elastic model
-[Ramberg
-Osgood](http://tfel.sourceforge.net/RambergOsgoodNonLinearElasticity.html)
-and also from the simple von Mises elasto-plastic model with isotropic
-linear hardening [Isotropic
-Hardening](http://tfel.sourceforge.net/IsotropicLinearHardeningPlasticity.html)
-in order to deal with nonlinear or history-dependent materials.
+We introduce different neural network architectures for constitutive
+modelling. First, we consider a feedforward network in order to
+approximate a parametric nonlinear elastic model [Ramberg
+Osgood](http://tfel.sourceforge.net/RambergOsgoodNonLinearElasticity.html).
+Then, in order to cope with history-dependent materials, we consider a
+recurrent neural network (GRU cells) to model a von Mises elasto-plastic
+behavior with isotropic linear hardening [Isotropic
+Hardening](http://tfel.sourceforge.net/IsotropicLinearHardeningPlasticity.html).
+
+Finally, we demonstrate how to fit a model with `PyTorch`, integrate it
+in `MFront`, and perform finite elements simulations thanks to the
+`mgis.fenics` python library. We benckmark machine learning models with
+classical formulations based on the results of such simulations.
+
 
 # The Hybrid High Order method in nonlinear solid mechanics with `MFront` and `MGIS`
 
