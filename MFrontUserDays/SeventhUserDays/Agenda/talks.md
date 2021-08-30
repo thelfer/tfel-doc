@@ -205,36 +205,38 @@ modified Cam clay model at the onset of plastic localization.](img/MoC_vs_MCC_ep
 - Thomas Nagel
   - TU Bergakademie Freiberg, Freiberg, Germany.
 
-In order to properly simulate complex hydrogeological or geotechnical processes it is
-crucial to reasonably capture the mechanical behavior of the geomaterials
-(soils or rocks, specifically). Mechanically speaking, a
-constitutive relation is needed for the calculation of the effective
-stress tensor as part of the constitutive closing of the thermo-hydro-mechanical
-models used. Therefore, a variety of inelastic (geo)mechanical
-material models is available in literature, such as the basic and more generally
-applicable Mohr-Coulomb and Cambridge (Cam) clay models along with more advanced
-models for specific materials and applications such as models for rock failure in
-the brittle-ductile transition or for creep in rock salt formations.
+In order to properly simulate complex hydrogeological or geotechnical
+processes it is crucial to reasonably capture the mechanical behavior of
+the geomaterials (soils or rocks, specifically). Mechanically speaking,
+a constitutive relation is needed for the calculation of the effective
+stress tensor as part of the constitutive closing of the
+thermo-hydro-mechanical models used. Therefore, a variety of inelastic
+(geo)mechanical material models is available in literature, such as the
+basic and more generally applicable Mohr-Coulomb and Cambridge (Cam)
+clay models along with more advanced models for specific materials and
+applications such as models for rock failure in the brittle-ductile
+transition or for creep in rock salt formations.
 
 Many formulations have in comman that they need to capture effects like
-elasto-plastic deformation, irreversible (plastic) pore compaction / consolidation,
-hardening and softening, different loading and unloading
-stiffness, and temperature dependence. The goal of this work is to highlight recent
-implementations of geomechanical models in `MFront`/`OpenGeoSys`, such as
+elasto-plastic deformation, irreversible (plastic) pore compaction /
+consolidation, hardening and softening, different loading and unloading
+stiffness, and temperature dependence. The goal of this work is to
+highlight recent implementations of geomechanical models in
+`MFront`/`OpenGeoSys`, such as
 
-- a consistent and clear presentation of the basic modified Cam clay model for
-cohesive soils
+- a consistent and clear presentation of the basic modified Cam clay
+  model for cohesive soils
 - models for primary, secondary and tertiary creep of rock salt
-- rock mechanical models at temperatures and pressures spanning the brittle-ductile
-transition
+- rock mechanical models at temperatures and pressures spanning the
+  brittle-ductile transition
 
-This talk describes the implementation of several material models for small strains
-in the open-source multi-field finite element software
+This talk describes the implementation of several material models for
+small strains in the open-source multi-field finite element software
 [`OpenGeoSys`](https://www.opengeosys.org/) based on `MFront`. For this,
-the set of constitutive equations and their implementation are outlined. Then,
-exemplary numerical studies are presented for typical hydrogeological and geotechnical
-applications demonstrating significant differences with respect to the chosen material
-model.
+the set of constitutive equations and their implementation are outlined.
+Then, exemplary numerical studies are presented for typical
+hydrogeological and geotechnical applications demonstrating significant
+differences with respect to the chosen material model.
 
 # Validation and performance of Cosserat media in small deformation
 
@@ -295,7 +297,33 @@ ZSet framework, using the solver Zebulon.
 - André Chrysochoos
   - LMGC UMR5508 CNRS, Université de Montpellier, Montpellier, France.
 
-# Neural network based constitutive models implemented using TensorFlow inside `MFront`
+The limits of Archard's law, stated in to more precisely describe the
+wear in braking problems is no longer to be demonstrated. The relation
+of proportionality between the volume of material lost and the
+associated work as formulated empirically through this law, does not
+always stick with the physical phenomena observed on the interfaces in
+contact, in particular in the case of carbon braking systems where the
+third body trapped in the interface in contact defaults this Archard
+model. Indeed, wear in these systems, the result of physicochemical
+processes and complex mechanical and dependent on many parameters which
+act on time scales and different space. Some studies in the literature
+come to highlight the close links between energy that is dissipated in
+the system and the phenomenon of wear. By decoupling in this energy the
+contribution which comes from friction, Zmitrowicz or even
+Dragon-Louiset and Stolz in have shown that it is possible to have an
+even more description "Real" of the phenomenon of wear.
+
+We propose a theoretical approach to modeling the wear of carbon brake
+systems from a thermodynamic description of the problem. Quantification
+of wear debris is estimated from the energy contributions related to the
+damage of the contact body and the mechanism from a third body potential
+trapped in the contact. The equations of states and evolutions which
+govern the model, are written within the framework of generalized
+standard materials.
+
+# Implementation of neural network based constitutive models
+
+![Comparison of results obtained by the Ramberg-Osgood behaviour and an neural network trained on unit tests on a structural test case.](img/NeuralNetworkConstitutiveEquations.png)
 
 - Marius Duvillard
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
@@ -303,6 +331,36 @@ ZSet framework, using the solver Zebulon.
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Thomas Helfer
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
+
+The characterization of the material behavior is crucial in the
+resolution of mechanical problems. For decades, constitutive laws were
+built thanks to parametric models depending on theoretical formalism
+[@truesdell_2004]. Identifying those parameters and fitting the data is
+one of the major difficulties. Therefore, modelling error and
+uncertainty arise from an imperfect knowledge of the functional form of
+the material laws.
+
+More recently, different kind of data-driven models were introduced with
+the use of AI, more specifically neural networks [@mehdi_pouragha_2020],
+or by a minimization problem in the phase space
+[@kirchdoerfer_ortiz_2015]. In the first case, neural networks allow to
+easily fit the material behavior without strong mathematical *a priori*.
+Moreover, it has been proved that feedforward neural networks are
+universal approximators [@hornik_1989], thus they could characterize
+complex material behaviors.
+
+However, neural network model needs to be trained with a large amount of
+data, and do not ensure physical consistency.
+
+In this talk, we present the development of different kind of neural
+network architecture for constitutive modelling and their integration in
+the `MFront` Framework. We generate data from a nonlinear elastic model
+[Ramberg
+Osgood](http://tfel.sourceforge.net/RambergOsgoodNonLinearElasticity.html)
+and also from the simple von Mises elasto-plastic model with isotropic
+linear hardening [Isotropic
+Hardening](http://tfel.sourceforge.net/IsotropicLinearHardeningPlasticity.html)
+in order to deal with nonlinear or history-dependent materials.
 
 # The Hybrid High Order method in nonlinear solid mechanics with `MFront` and `MGIS`
 
@@ -359,6 +417,8 @@ the element level, with a direct correspondence between a Voronoï cell
 and an HHO polyhedral element in the mesh.
 
 # The `MFEM-MGIS` project: coupling of `MFEM` and MGIS for High Performance non linear simulations
+
+![Modelling of \(2\,000\) elastic inclusions in a periodic representative elementary volume with `MFEM-MGIS`](img/MFEMMGIS.jpeg)
 
 - Guillaume Latu
   - CEA Cadarache IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
