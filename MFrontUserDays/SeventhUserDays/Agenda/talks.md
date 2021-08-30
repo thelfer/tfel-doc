@@ -152,13 +152,14 @@ developments such as coupling with models for phase transformation,
 recrystallization, etc.
 
 The T-EVP-FE model has been implemented with the help of `MFront` and
-FEniCS linked together with `MFront Generic Interface Support` (`MGIS`).
-The `MFront` `ImplicitGenericBehaviour` DSL is used to model the
-constitutive behavior while `FEniCS` is used to solve the coupled
-temperature evolution and equilibrium equations. In this talk, we
-discuss the T-EVP initial boundary value problem, the `FEniCS-MFront`
-solution algorithm, key features of the implemented code, and validation
-with other numerical solutions.
+[`FEniCS`](https://fenicsproject.org/) linked together with `MFront
+Generic Interface Support` (`MGIS`). The `MFront`
+`ImplicitGenericBehaviour` DSL is used to model the constitutive
+behavior while [`FEniCS`](https://fenicsproject.org/) is used to solve
+the coupled temperature evolution and equilibrium equations. In this
+talk, we discuss the T-EVP initial boundary value problem, the
+`FEniCS-MFront` solution algorithm, key features of the implemented
+code, and validation with other numerical solutions.
 
 # Implementation of a polycristalline model to simulate the radiation induced deformation of Zircaloy cladding tubes using the MFront code generation tool
 
