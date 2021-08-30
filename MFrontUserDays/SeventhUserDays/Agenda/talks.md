@@ -101,10 +101,28 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
   - BGE Technology, Germany
 - Thomas Helfer (CEA)
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
-- Thomas Nagel
-  - TU Bergakademie Freiberg, Freiberg, Germany.
 - David Mašín
   - Charles University in Prague Faculty of Science Albertov 6, 128 43 Prague 2, Czech Republic 
+- Thomas Nagel
+  - TU Bergakademie Freiberg, Freiberg, Germany.
+
+A novel approach of using existing implementations of constitutive
+material models in any numerical code interfacing with `MFront`.
+
+In this work, we developed a novel approach, which consists of using
+existing constitutive models already available in different finite
+element codes in any numerical codes interacting with `MFront`. We used
+for that the versatility of the `C++` language, which allows us to
+define new kind of interfaces incorporating the legacy implementation
+code of constitutive equations independently from the programing
+language used. These interfaces then define the necessary connections
+between the constitutive models and the solver connected to `MFront`.
+
+At this stage, the approach has been used to make available all kind of
+constitutive models written in the `UMAT` format in `Fortran` into the
+code [`OpenGeoSys`](https://www.opengeosys.org/). The results of a
+simulation using a `UMAT`-model and the corresponding test procedure to
+validate this approach will be discussed in this presentation.
 
 # Implementation of a coupled thermo-elasto-viscoplastic polycrystalline finite element model using `FEniCS` (`mgis.fenics`) and `MFront`
 
@@ -116,6 +134,31 @@ unloading by applying the new developed damage creep model](img/ConcreteBehaviou
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Manas Upadhyay
   - Laboratoire de Mécanique des Solides (LMS), CNRS UMR 7649, Ecole Polytechnique, Institut Polytechnique de Paris, 91128 Palaiseau Cedex, France
+
+During metal Additive Manufacturing (AM), just after deposition and
+rapid solidification, the material is subjected to thermal cycling in
+solid-state with different temperature amplitudes and rates until the
+end of the AM process. The thermo-mechanical driving forces arising from
+this Solid-State Thermal Cycling (SSTC) could trigger different
+micro-mechanisms (e.g., dislocation dynamics, recrystallization, phase
+transformation, etc.) that can significantly alter the as-solidified
+microstructure and its subsequent mechanical response.
+
+Our aim is to design and develop a polycrystalline
+Thermo-Elasto-Viscoplastic Finite Element (T-EVP-FE) model to predict
+and understand the microstructure evolution and the T-EVP response due
+to SSTC during AM. This model is intended to act as a base for future
+developments such as coupling with models for phase transformation,
+recrystallization, etc.
+
+The T-EVP-FE model has been implemented with the help of `MFront` and
+FEniCS linked together with `MFront Generic Interface Support` (`MGIS`).
+The `MFront` `ImplicitGenericBehaviour` DSL is used to model the
+constitutive behavior while `FEniCS` is used to solve the coupled
+temperature evolution and equilibrium equations. In this talk, we
+discuss the T-EVP initial boundary value problem, the `FEniCS-MFront`
+solution algorithm, key features of the implemented code, and validation
+with other numerical solutions.
 
 # Implementation of a polycristalline model to simulate the radiation induced deformation of Zircaloy cladding tubes using the MFront code generation tool
 
