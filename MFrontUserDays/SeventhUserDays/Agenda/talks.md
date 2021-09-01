@@ -1,7 +1,7 @@
 ---
 title: Agenda of the seventh `MFront` User Meeting
 author: Thomas Helfer
-date: 211/2021
+date: 21/10/2021
 toc: true
 numbersections: true
 lang: en-EN
@@ -272,7 +272,7 @@ elastoplastic model ([@forest2003elastoviscoplastic],
 test case i.e. torsion test of a cylindrical specimen, by comparing the
 results from [FEniCS](https://fenicsproject.org/) and TFEL/MFront with
 the analytical/semi-analytical solution and a solution obtained with the
-ZSet framework, using the solver Zebulon.
+`ZSet` framework, using the `Zebulon` finite element solver.
 
 # `MFront`, `code_aster` and wood: mechanical behaviors for structural applications and cultural heritage conservation.
 
@@ -285,9 +285,27 @@ ZSet framework, using the solver Zebulon.
 - Marco Fioravanti
   - University of Florence, Dagri Dept., Florence, Italy.
 
-# Modélisation du freinage à partir d’une formulation thermomécanique
+By its nature, wood has a marked orthotropic behaviour with respect to a
+cylindrical reference coordinate system, which coincides with the
+development of its growth rings. Not only its elastic characteristics
+vary significantly in the three anatomical directions (namely
+longitudinal, radial and tangential), but it also demonstrates an
+associated orthotropic viscoelastic behaviour, as well as a strong
+correlation of its deformation characteristics of shrinkage and swelling
+with variation of the moisture content.
 
-![Modélisation du freinage avec `code_aster` et `MFront`](img/Braking.png ""){width=80%}
+This study shows how, through the use of `MFront` and the development of
+dedicated material laws, it is possible to address these issues and
+simulate these characteristics both for steady-state and transient
+hygroscopic analyses, allowing to obtain the stress and deformation
+state and history of the material. Two areas of application are
+discussed; in the conservation of cultural heritage, specifically
+renaissance panel paintings, and in structural engineering of timber
+buildings.
+
+# Theoretical framework of the friction and wear phenomena through of thermodynamics approaches: application to aeronautical braking
+
+![Modelling of braking with `code_aster` and `MFront`](img/Braking.png ""){width=80%}
 
 - Thierry Ndzana Satoh
   - LMGC UMR5508 CNRS, Université de Montpellier, Montpellier, France.
@@ -297,21 +315,25 @@ ZSet framework, using the solver Zebulon.
 - André Chrysochoos
   - LMGC UMR5508 CNRS, Université de Montpellier, Montpellier, France.
 
-The limits of Archard's law, stated in to more precisely describe the
-wear in braking problems is no longer to be demonstrated. The relation
-of proportionality between the volume of material lost and the
-associated work as formulated empirically through this law, does not
-always stick with the physical phenomena observed on the interfaces in
-contact, in particular in the case of carbon braking systems where the
-third body trapped in the interface in contact defaults this Archard
-model. Indeed, wear in these systems, the result of physicochemical
-processes and complex mechanical and dependent on many parameters which
-act on time scales and different space. Some studies in the literature
-come to highlight the close links between energy that is dissipated in
-the system and the phenomenon of wear. By decoupling in this energy the
-contribution which comes from friction, Zmitrowicz or even
-Dragon-Louiset and Stolz in have shown that it is possible to have an
-even more description "Real" of the phenomenon of wear.
+The limits of Archard's law, stated in [@archard1953contact] to more
+precisely describe the wear in braking problems is no longer to be
+demonstrated. The relation of proportionality between the volume of
+material lost and the associated work as formulated empirically through
+this law, does not always stick with the physical phenomena observed on
+the interfaces in contact, in particular in the case of carbon braking
+systems where the third body trapped in the interface in contact
+defaults this Archard model. Indeed, wear in these systems, the result
+of physicochemical processes and complex mechanical and dependent on
+many parameters which act on time scales and different space. Some
+studies in the literature come to highlight the close links between
+energy that is dissipated in the system and the phenomenon of wear
+[@ito2009relationship;@smerdova2014links;@shi2020tribological]. By
+decoupling in this energy the contribution which comes from friction,
+Zmitrowicz
+[@zmitrowicz1987thermodynamicalI;@zmitrowicz1987thermodynamicalII;@zmitrowicz1987thermodynamicalIII]
+or even Dragon-Louiset and Stolz [@stolz2010thermodynamical] in have
+shown that it is possible to have an even more description "Real" of the
+phenomenon of wear.
 
 We propose a theoretical approach to modeling the wear of carbon brake
 systems from a thermodynamic description of the problem. Quantification
