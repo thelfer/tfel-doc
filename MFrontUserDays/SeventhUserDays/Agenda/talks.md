@@ -402,13 +402,13 @@ classical formulations based on the results of such simulations.
   - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
-- Thomas HELFER
+- Thomas Helfer
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
 - Olivier FANDEUR
   - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - IMSIA, UMR 9219, CNRS-EDF-CEA-ENSTA Paris.
 - Nicolas Pignet
-  - EDF R&D,
+  - EDF R&D
 - Jacques BESSON
   - Mines ParisTech, PSL University, Centre des matériaux, CNRS UMR
     7633, 91003 Évry, France.
