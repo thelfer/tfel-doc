@@ -238,42 +238,6 @@ Then, exemplary numerical studies are presented for typical
 hydrogeological and geotechnical applications demonstrating significant
 differences with respect to the chosen material model.
 
-# Validation and performance of Cosserat media in small deformation
-
-![Results obtained for a torsion Test a) Comparison with the analytical
-solution in elasticity￼. b) Magnitude of the rotation of the
-microstructure](img/CosseratResults.png "")
-
-- Tamara Dancheva
-  -  Basque Center for Applied Mathematics
-- Raffaele Russo
-  - University of the Basque Country
-- Flavien Ghiglione
-  - MINES ParisTech
-- Unai Alonso
-  - University of the Basque Country
-- Michael Barton
-  - Basque Center for Applied Mathematics
-
-In this talk, we will dive into the implementation and performance of a
-Generalized Continua-based model, more specifically within the framework
-of Cosserat media [@cosserat1909theorie]. We aim to use this model for
-simulating the realistic behaviour of metal alloys during the process of
-machining (a material removal process during which the material
-undergoes severe plastic deformation). We developed this model using the
-open-source FEM framework [`FEniCS`](https://fenicsproject.org/) and
-`TFEL/MFront` using the
-[`mgis.fenics`](https://thelfer.github.io/mgis/web/mgis_fenics.html)
-module [@bleyer_overview_2020]).
-
-We present our work on the validation and performance of the elastic and
-elastoplastic model ([@forest2003elastoviscoplastic],
-[@russo2020thermomechanics]) in small deformation for a representative
-test case i.e. torsion test of a cylindrical specimen, by comparing the
-results from [FEniCS](https://fenicsproject.org/) and TFEL/MFront with
-the analytical/semi-analytical solution and a solution obtained with the
-`ZSet` framework, using the `Zebulon` finite element solver.
-
 # `MFront`, `code_aster` and wood: mechanical behaviors for structural applications and cultural heritage conservation.
 
 ![Modelling of Drying schrinkage of wood with `code_aster` and `MFront`](img/WoodViscelasticity.jpg ""){width=80%}
@@ -404,7 +368,7 @@ classical formulations based on the results of such simulations.
     7633, 91003 Évry, France.
 - Thomas Helfer
   - CEA Cadarache, IRESNE/DES/DEC/SESC/LSC, 13 108 St Paul lez Durance, France.
-- Olivier FANDEUR
+- Olivier Fandeur
   - CEA Saclay, ISAS/DES/DM2S/SEMT/LM2S, 91191 Gif-sur-Yvette cedex.
   - IMSIA, UMR 9219, CNRS-EDF-CEA-ENSTA Paris.
 - Nicolas Pignet
