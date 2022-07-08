@@ -37,9 +37,9 @@ csl: iso690-numeric-en.csl
 - Jean-Marie Gatt
   - CEA, DES, IRESNE, DEC, SESC, LM2C, F-13108 Saint-Paul-lez-Durance, France
 
-![""](img/Bouizem.png ""){#fig:bouizem width=75%}
+!["(left) GNDs density in deformed \(UO_{2}\) (right) Plastic flow"](img/Bouizem.png ""){#fig:bouizem width=75%}
 
-**keywords** Geometrically Necessary Dislocations (GNDs), Field
+**keywords**: Geometrically Necessary Dislocations (GNDs), Field
   Dislocation Mechanics (FDM), Viscoplasticity, Dislocation
   substructures, Fast Fourier Transform (FFT).
 
@@ -83,5 +83,64 @@ at the grain boundaries, glide within the grains, and the formation of
 sub-grains. Results predicted by the model demonstrate, qualitatively, a
 good agreement with the experimentally observed dislocations
 substructure in deformed UO$_2$.
+
+# Random 3D generation of MOX nuclear fuel microstructure and mechanical homogenization
+
+- Akram el Abdi
+  - CEA, DES, IRESNE, DEC, SESC, LM2C, F-13108 Saint-Paul-lez-Durance, France
+  - now at EDF R&D, MMC, F-77818 Moret-sur-Loing, France
+- Étienne Castelier
+  - CEA, DES, IRESNE, DEC, SESC, LM2C, F-13108 Saint-Paul-lez-Durance, France
+- Rodrigue Largenton
+  - EDF R&D, MMC, F-77818 Moret-sur-Loing, France
+- Antoine Bouloré
+  - CEA, DES, IRESNE, DEC, SESC, LSC, F-13108 Saint-Paul-lez-Durance, France
+- Christian Lantuéjoul
+  - Centre de Géosciences, MINES ParisTech, F-77300 Fontainebleau, France
+- Jean-Claude Michel
+  - Aix-Marseille Université, CNRS, Centrale Marseille, LMA, F-13453 Marseille Cedex 13 , France
+
+![""](img/ElAbdi.png ""){#fig:elabdi width=75%}
+
+**keywords**: continuous random media, Mechanical calculation by FFT,
+  Mechanical homogenization by NTFA, Model reduction
+
+The MOX is a nuclear fuel composed of plutonium (Pu) and uranium oxides.
+Its microstructure is recognized by maps of Pu content obtained by
+electron microprobe (figure 1). The MOX texture is classically
+approached by a three-phase particulate microstructure with two
+inclusion phases dispersed in a continuous matrix.
+
+In reality, the Pu content is continuous in space. The objective of this
+work is to generate in 3D a new microstructure that takes into account
+the continuity of Pu content, to check the effect of this continuity on
+mechanical behavior by performing mechanical calculations, and finally
+to identify a homogenized mechanical law based on the new
+microstructure.
+
+ 
+A new random model, based on a combination of random sets and functions,
+was used to better characterize the microstructure, and its
+characteristics are obtained after filtering the measurement noise from
+the experimental map. The random model simulation gives a new
+microstructure of three phases, with a variability of the Pu content in
+each phase (figure @fig:elabdi).
+
+From a mechanical point of view, the nuclear fuel is a material with
+non-linear aging viscoelastic behavior and free swelling, which depends
+on the local plutonium content. Mechanical calculations, using a FFT
+method, were performed on the 3D generated microstructures, and the
+results show that the effect of variability is important on the local
+mechanical fields and the effective behavior.
+
+Finally, the NTFA method, previously used for the same material, is
+extended to take into account the Pu content variability, and optimized
+by linearizing the non-linear behavior using the tangent second-order
+approximation (NTFA-TSO). The law is implemented in the MFront format,
+and tested by using Mtest tool. The predictions of the new reduced model
+are in good agreement with full-field simulations with a reduced number
+of internal variables.
+
+ 
 
 # References
