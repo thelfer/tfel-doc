@@ -22,6 +22,8 @@ csl: iso690-numeric-en.csl
 
 - Thomas Helfer
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+- Maxence Wangermez
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
 
 # The role of geometrically necessary dislocations flow in viscoplastic behavior of polycrystalline uranium dioxide
 
@@ -100,16 +102,16 @@ substructure in deformed UO$_2$.
 - Jean-Claude Michel
   - Aix-Marseille Université, CNRS, Centrale Marseille, LMA, F-13453 Marseille Cedex 13 , France
 
-![""](img/ElAbdi.png ""){#fig:elabdi width=75%}
+!["(left) Experimental map of Pu content (right) New 3D generated microstructure"](img/ElAbdi.png ""){#fig:elabdi width=75%}
 
 **keywords**: continuous random media, Mechanical calculation by FFT,
   Mechanical homogenization by NTFA, Model reduction
 
 The MOX is a nuclear fuel composed of plutonium (Pu) and uranium oxides.
 Its microstructure is recognized by maps of Pu content obtained by
-electron microprobe (figure 1). The MOX texture is classically
-approached by a three-phase particulate microstructure with two
-inclusion phases dispersed in a continuous matrix.
+electron microprobe (Figure @fig:elabdi left). The MOX texture is
+classically approached by a three-phase particulate microstructure with
+two inclusion phases dispersed in a continuous matrix.
 
 In reality, the Pu content is continuous in space. The objective of this
 work is to generate in 3D a new microstructure that takes into account
@@ -118,13 +120,12 @@ mechanical behavior by performing mechanical calculations, and finally
 to identify a homogenized mechanical law based on the new
 microstructure.
 
- 
 A new random model, based on a combination of random sets and functions,
 was used to better characterize the microstructure, and its
 characteristics are obtained after filtering the measurement noise from
 the experimental map. The random model simulation gives a new
 microstructure of three phases, with a variability of the Pu content in
-each phase (figure @fig:elabdi).
+each phase (Figure @fig:elabdi right).
 
 From a mechanical point of view, the nuclear fuel is a material with
 non-linear aging viscoelastic behavior and free swelling, which depends
@@ -136,10 +137,10 @@ mechanical fields and the effective behavior.
 Finally, the NTFA method, previously used for the same material, is
 extended to take into account the Pu content variability, and optimized
 by linearizing the non-linear behavior using the tangent second-order
-approximation (NTFA-TSO). The law is implemented in the MFront format,
-and tested by using Mtest tool. The predictions of the new reduced model
-are in good agreement with full-field simulations with a reduced number
-of internal variables.
+approximation (NTFA-TSO). The law is implemented in the `MFront` format,
+and tested by using `MTest` tool. The predictions of the new reduced
+model are in good agreement with full-field simulations with a reduced
+number of internal variables.
 
  
 
