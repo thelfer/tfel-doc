@@ -41,7 +41,7 @@ csl: iso690-numeric-en.csl
 
 !["(left) GNDs density in deformed \(UO_{2}\) (right) Plastic flow"](img/Bouizem.png ""){#fig:bouizem width=75%}
 
-**keywords**: Geometrically Necessary Dislocations (GNDs), Field
+**Keywords**: Geometrically Necessary Dislocations (GNDs), Field
   Dislocation Mechanics (FDM), Viscoplasticity, Dislocation
   substructures, Fast Fourier Transform (FFT).
 
@@ -104,7 +104,7 @@ substructure in deformed UO$_2$.
 
 !["(left) Experimental map of Pu content (right) New 3D generated microstructure"](img/ElAbdi.png ""){#fig:elabdi width=75%}
 
-**keywords**: continuous random media, Mechanical calculation by FFT,
+**Keywords**: continuous random media, Mechanical calculation by FFT,
   Mechanical homogenization by NTFA, Model reduction
 
 The MOX is a nuclear fuel composed of plutonium (Pu) and uranium oxides.
@@ -142,6 +142,163 @@ and tested by using `MTest` tool. The predictions of the new reduced
 model are in good agreement with full-field simulations with a reduced
 number of internal variables.
 
- 
+# Damage mechanics implementations using MFront: orthotropic, anisotropic microplane and embedded strong-discontinuity models for quasi-brittle materials
+
+- Breno Ribeiro Nogueira
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+  - Università degli Studi del Molise, DiBT, Campobasso, Italie
+- Héloïse Rostagni
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+- Giuseppe Rastiello
+  - Université Paris-Saclay, CEA, Service d’études mécaniques et thermiques, France
+- Cédric Giry
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+- Fabrice Gatuingt
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+- Carlo Callari
+  - Università degli Studi del Molise, DiBT, Campobasso, Italie
+- Frédéric Ragueneau
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+- Ibrahim Bitar
+  - Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, France
+- Benjamin Richard
+  - Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, France
+
+**Keywords**: microplane damage, orthotropic damage, embedded strong-discontinuity, quasi-brittle materials.
+
+Accurately predicting the response of structures subjected to complex loadings is a challenging task in civil
+engineering. In particular, studying cracking nucleation and propagation is essential to assess structural
+performances.
+
+Quasi-brittle materials are generally modeled using strain-softening
+constitutive models. The stress-strain material response shows a
+progressive loss of stiffness right after the elastic limit. Continuum
+Damage Mechanics (CDM) considers a Representative Elementary Volume
+(REV) on which the homogenized material behavior is defined. According
+to this approach, material degradation is represented at a macroscopic
+level by a scalar or tensorial (second-order or higher) damage variable.
+However, close to failure, strongly localized mechanical fields
+(displacement, strain) cannot be reproduced in a relevant way in a
+standard Finite Element (FE) context, which supposes a continuity of the
+displacement field. In fact, when a crack is formed, the displacement
+field tends to a Heaviside distribution, which gives a strain field
+containing a Dirac contribution. Right after strain localization, the
+transition from a regularized continuum model to an explicit description
+of cracking (e.g., modeled in the Embedded FEM, E-FEM) should be applied
+[@jirsek_embedded_2001;@simone_continuous_2003;@kakarla_santosh_anisotropic_2020].
+
+This work aims to present an overall view of some `MFront`
+implementations for cracking assessment in quasi-brittle materials. For
+this sake, three different models and the corresponding implementations
+will be presented and discussed: a microplane damage model, an
+orthotropic damage model for dissipative mechanisms in masonry-like
+materials, and a strong-discontinuity model developed in the E-FEM
+framework. We first present a two dimensional simplified microplane
+damage model [@BAZ84;@park_microplane_2003;@KAK21], and illustrate the
+`MFront` implementation. Finite element simulations (see Figure
+@fig:microplane) are carried out using the `Cast3M` finite element
+analysis software, and mesh-independent solutions are guaranteed by
+applying a simple energy-based regularization approach. Numerical
+validations are performed by comparison with available results in the
+literature.
+
+!["Simulation of the Shi-test Shi et al. (2000) using the two
+dimensional microplane damage model proposed by Kakarla
+[@kakarla_santosh_anisotropic_2020]"](img/microplans_mfront.png){#fig:microplane
+width=95%}
+
+Then, the `MFront` implementation of an orthotropic damage model for
+masonry [@tisserand_orthotropic_2022] is discussed. Three families of
+cracks are identified. Damage is decomposed in their main directions and
+is coupled with friction to model hysteric loops that are observed
+during cyclic loading. Similarly, the new constitutive behavior is
+compiled using the `Cast3M` interface, and a few numerical examples are
+presented. Finally, some first results and insights about the ongoing
+works on the implementation of the E-FEM (embedded cracks) method
+[@ortiz_finite_1987;@simo_analysis_1993;@oliver_modelling_1996;@oliver_computational_2004]
+with `MFront` are presented. According to this approach, displacement
+discontinuities associated with cracks are taken into account in the
+formulation. Compared to other formulations based on nodal enrichment of
+the FE shape functions, the main advantage of this method is that the
+enhancement field corresponding to displacement jumps can be statically
+condensed at the FE level. Consequently, the numerical implementation
+can be done analogously to a material behavior law.
+
+## Acknowledgments
+
+B. Ribeiro Nogueira was supported by a public grant overseen by the
+French National research Agency (ANR) as part of the ”Investissements
+d’Avenir” program, through the ”ADI 2021” project funded by the IDEX
+Paris-Saclay, ANR-11-IDEX-0003-02. G. Rastiello was partly supported by
+the SEISM Institute (<http://www.institut-seism.fr>). This work was also
+supported by the French Institute for Radioprotection and Nuclear Safety
+(IRSN).
+
+# Modeling of VERCORS concrete behavior under severe accident scenario
+
+- Herman Koala
+  - EDF R&D, MMC, F-77818 Moret-sur-Loing, France
+  - LMDC, INSA, UPS Génie Civil, F - 31077 Rangueil, France
+- Jean-Luc Adia
+  - EDF R&D, MMC, F-77818 Moret-sur-Loing, France
+- Alain SELLIER
+  - LMDC, INSA, UPS Génie Civil, F - 31077 Rangueil, France
+- Thierry Vidal
+  - LMDC, INSA, UPS Génie Civil, F - 31077 Rangueil, France
+- Sylvie Michel-Ponnelle
+  - EDF R&D, ERMES, F-91120 Palaiseau, France
+- Stéphane POYET
+  - CEA, DEN, DPC, SCCME, LECBA, F-91191 Gif-sur-Yvette, France
+
+!["Simulation of concrete creep in a drying configuration at
+\(70\mbox{}^{\circ}C\)"](img/concrete-creep.png){#fig:concrete_creep
+width=95%}
+
+**Keywords**: thermal transient creep, viscoelasticity, orthotropic damage, consolidation process
+
+Concrete is a mixture of aggregates, cement and water in well-defined
+proportions depending on the desired mechanical performance. VERCORS
+concrete is a standard concrete representative of the concrete used in
+the double-walled containment buildings of nuclear power plants. For
+numerical calculations on a macroscopic scale, the concrete is
+considered as a homogeneous medium characterized mechanically by a
+Young's modulus and a homogeneous Poisson's ratio.
+
+This study is part of the deepening of knowledge on the behavior of
+VERCORS concrete under accidental thermo-hydro-mechanical loading
+conditions. The objective is to implement and calibrate a creep model
+able to reproduce the instantaneous, transient and delayed deformations
+of concrete.
+
+The implemented viscoelastic model, based on the works of F. Manzoni et
+al. [@manzoni_origins_2020] and A. Sellier [@sellier_anisotropic_2018],
+allows within the framework of classical poromechanics to partition the
+total external applied stress into two components; an effective stress
+corresponding to the part of the total stress that is applied on the
+solid skeleton; In the proposed rheological model, this component is
+represented by an association of a spring for the elastic strain, a
+Kelvin chain for viscoelastic creep and a Maxwell chain for purely
+viscous creep. The second component of the total stress corresponds to
+the water pressure allowing to take into account the effects of changes
+in capillary and disjunction pressure.
+
+During a temperature increase, an additional creep strain has been
+experimentally observed [@cagnon_effects_2016] and under certain
+thermo-hydric conditions, its amplitude is such that the concrete,
+instead of expanding under the effect of temperature increase, contracts
+instead (Figure @fig:concrete_creep). In order to take into account this
+transient strain in the model, a viscous deformation rheologically
+linked to the Maxwell chain was defined. The kinetics associated with
+this additional creep strain is driven by a micro-diffusion equation of
+water from concrete nanopores to capillary ones.
+
+Finally, a thermo-hydric coupled orthotropic damage model has been
+defined to take into account the microstructural part of the drying
+creep of concrete.
+
+The model has been implemented following an implicit scheme under
+`MFront` and tests have been performed via `MTest` and `code_aster`. The
+computational results show a good ability of the model to simulate the
+macroscopic creep of VERCORS concrete in temperature.
 
 # References
