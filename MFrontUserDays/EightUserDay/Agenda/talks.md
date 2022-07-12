@@ -247,8 +247,8 @@ supported by the French Institute for Radioprotection and Nuclear Safety
   - LMDC, INSA, UPS Génie Civil, F - 31077 Rangueil, France
 - Sylvie Michel-Ponnelle
   - EDF R&D, ERMES, F-91120 Palaiseau, France
-- Stéphane POYET
-  - CEA, DEN, DPC, SCCME, LECBA, F-91191 Gif-sur-Yvette, France
+- Stéphane Poyet
+  - CEA, DES, ISAS, DPC, SECR, LECBA, F-91191 Gif-sur-Yvette cedex, France
 
 !["Simulation of concrete creep in a drying configuration at
 \(70\mbox{}^{\circ}C\)"](img/concrete-creep.png){#fig:concrete_creep
