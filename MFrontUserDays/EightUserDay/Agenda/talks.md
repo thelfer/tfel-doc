@@ -145,24 +145,24 @@ number of internal variables.
 # Damage mechanics implementations using MFront: orthotropic, anisotropic microplane and embedded strong-discontinuity models for quasi-brittle materials
 
 - Breno Ribeiro Nogueira
-  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
-  - Università degli Studi del Molise, DiBT, Campobasso, Italie
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, 91190 Gif-sur-Yvette, France
+  - Università degli Studi del Molise, DiBT, 86100 Campobasso, Italie
 - Héloïse Rostagni
-  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, 91190 Gif-sur-Yvette, France
 - Giuseppe Rastiello
-  - Université Paris-Saclay, CEA, Service d’études mécaniques et thermiques, France
+  - Université Paris-Saclay, CEA, Service d’études mécaniques et thermiques, 91191 Gif-sur-Yvette, France
 - Cédric Giry
-  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, 91190 Gif-sur-Yvette, France
 - Fabrice Gatuingt
-  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, 91190 Gif-sur-Yvette, France
 - Carlo Callari
-  - Università degli Studi del Molise, DiBT, Campobasso, Italie
+  - Università degli Studi del Molise, DiBT, 86100 Campobasso, Italie
 - Frédéric Ragueneau
-  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, France
+  - Université Paris-Saclay, CentraleSupélec, ENS Paris-Saclay, CNRS, LMPS - Laboratoire de Mécanique Paris-Saclay, 91190 Gif-sur-Yvette, France
 - Ibrahim Bitar
-  - Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, France
+  -  Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, 92262 Fontenay-aux-Roses, France
 - Benjamin Richard
-  - Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, France
+  -  Institut de Radioprotection et de Sûreté Nucléaire (IRSN), PSN-EXP/SES/LMAPS, 92262 Fontenay-aux-Roses, France
 
 **Keywords**: microplane damage, orthotropic damage, embedded strong-discontinuity, quasi-brittle materials.
 
@@ -247,8 +247,8 @@ supported by the French Institute for Radioprotection and Nuclear Safety
   - LMDC, INSA, UPS Génie Civil, F - 31077 Rangueil, France
 - Sylvie Michel-Ponnelle
   - EDF R&D, ERMES, F-91120 Palaiseau, France
-- Stéphane Poyet
-  - CEA, DES, ISAS, DPC, SECR, LECBA, F-91191 Gif-sur-Yvette cedex, France
+- Stéphane POYET
+  - CEA, DEN, DPC, SCCME, LECBA, F-91191 Gif-sur-Yvette, France
 
 !["Simulation of concrete creep in a drying configuration at
 \(70\mbox{}^{\circ}C\)"](img/concrete-creep.png){#fig:concrete_creep
