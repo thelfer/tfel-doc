@@ -335,6 +335,41 @@ The model has been implemented following an implicit scheme under
 computational results show a good ability of the model to simulate the
 macroscopic creep of VERCORS concrete in temperature.
 
+# Flexible constitutive interfaces using `MFront` and `OpenGeoSys`
+
+- Thomas Nagel
+  - Geotechnical Institute, Technische Universität Bergakademie Freiberg, Germany
+- Christoph Lehmann
+  - Environmental Informatics, Helmholtz-Centre for Environmental Research -- UFZ, Leipzig, Germany
+- Dmitri Naumov
+  - Geotechnical Institute, Technische Universität Bergakademie Freiberg, Germany
+
+**Keywords**: GenericBehaviourInterface, THM modelling
+
+!["THM-coupled simulations of heater experiments in clay rock [@Nagel2021_BGRZB1]."](img/heating_phase.0060.png ""){#fig:mp width=75%}
+
+The coupled physics of heat transport, flow of multicomponent multiphase fluids 
+both in the pore space and in fractures of geological media as well as the resulting 
+solid mechanical effects are of interest in many geotechnical applications. 
+This includes geothermal energy extraction, geoenergy storage, carbon sequestration 
+and storage, nuclear waste disposal, and buried cables for high-voltage electricity 
+transfer or pipelines [@McCartney2016]. 
+
+The continuum mechanical description of such thermo-hydro-mechanical couplings
+requires a diverse range of constitutive models for the involved fluids, solids
+and the various process couplings. It remains a challenge to integrate this 
+extended material knowledge into numerical process simulators in a robust manner
+as well as to fulfill strict verification and validation requirements in particular
+for safety-critical applications such as nuclear waste disposal. 
+
+In this contribution we highlight current development efforts to address this challenge 
+including the open-source software packages OpenGeoSys [@Bilke2019], 
+MFront and MGIS [@Helfer2020]. In particular, we show how different constitutive 
+choices lead to different process descriptions and how that affects the finite element 
+implementation. We discuss the challenge of combining different coupling or solution 
+schemes along with different combinations of constitutive relations implemented 
+in `MFront` or natively in `OpenGeoSys`.
+
 <!--
 
 # Material knowledge management using the `MFrontGallery` project
