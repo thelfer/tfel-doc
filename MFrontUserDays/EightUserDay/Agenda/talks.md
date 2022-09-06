@@ -62,6 +62,20 @@ advanced features that were only introduced in the latest versions.
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
 - Maxence Wangermez
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+- Raphael Prat
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+
+After the massive overhaul of version 4.0, version 4.1 has seen an
+impressive amount of development to improve the user experience (better
+support for quantities and point-wise models, new features in the
+`StandardElastoViscoplasticity` brick, possibility to customize the
+behaviour of `MFront`, etc...) and to prepare the future of `MFront`
+(port to GPUs, just-in-time compilation, etc...). See this page for a
+full description:
+<https://thelfer.github.io/tfel/web/release-notes-4.1.html>
+
+This talk will focus on some of these developments to illustrate their
+impact on end users and on solvers, notably those based on `MGIS`.
 
 # The role of geometrically necessary dislocations flow in viscoplastic behavior of polycrystalline uranium dioxide
 
@@ -373,6 +387,32 @@ choices lead to different process descriptions and how that affects the finite e
 implementation. We discuss the challenge of combining different coupling or solution 
 schemes along with different combinations of constitutive relations implemented 
 in `MFront` or natively in `OpenGeoSys`.
+
+#  Implementation, validations and applications of a constitutive model for crushed salt using `MFront`
+
+- Eric Simo
+  - BGE Technology, Germany
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+- Christian Lerch
+  - BGE Technology, Germany
+- Thomas Nagel
+  - Geotechnical Institute, Technische Universität Bergakademie Freiberg, Germany
+
+The isolation of radioactive waste in a high-level waste (HLW)
+repository in salt formations is provided by a multi-barrier system
+based on a combination of engineered and natural barriers. The natural
+barrier is provided by salt rock itself, whereas the engineered barrier
+is comprised of sealing components installed at specific locations in
+the repository. In this concept, the long-term safety of the mined
+excavations will be ensured by backfilling with crushed salt. Crushed
+salt acquires its sealing capacity through compaction due to the
+convergence of the rock. In this work, a model describing the mechanical
+behaviour has been implemented in MFront. The validation of this model
+using sensivity analyses against laboratory data has been subsequently
+performed. The use of the model in a numerical application in OpenGeoSys
+completes this study.
+ 
 
 <!--
 
