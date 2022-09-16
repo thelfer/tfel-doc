@@ -413,6 +413,72 @@ using sensivity analyses against laboratory data has been subsequently
 performed. The use of the model in a numerical application in OpenGeoSys
 completes this study.
  
+# Slip systems interaction effects on Berkovich nanoindentation using Crystal Plasticity Finite Element Model
+
+- Alexandre Bourceret
+  - FEMTO-ST Institute, CNRS/UFC/ENSMM/UTBM, Department of Applied Mechanics, Univ. Bourgogne Franche-Comté, F-25000, Besançon, France
+- Yves Gaillard
+  - FEMTO-ST Institute, CNRS/UFC/ENSMM/UTBM, Department of Applied Mechanics, Univ. Bourgogne Franche-Comté, F-25000, Besançon, France
+- Arnaud Lejeune
+  - FEMTO-ST Institute, CNRS/UFC/ENSMM/UTBM, Department of Applied Mechanics, Univ. Bourgogne Franche-Comté, F-25000, Besançon, France
+- Fabrice Richard
+  - FEMTO-ST Institute, CNRS/UFC/ENSMM/UTBM, Department of Applied Mechanics, Univ. Bourgogne Franche-Comté, F-25000, Besançon, France
+
+**Keywords**: Cristal Plasticity Finite Elements Model (CPFEM),
+  Interaction matrix, Nanoindentation
+
+Single crystal plasticity laws parameters identification remains of a
+great interest for the aeronautic and nuclear domains. Such material
+parameters drive the hardening at microscopic scale and allow finest
+description of the plastic behaviour. Determination of the slip systems
+interaction parameters (\(h_{i}\), \(i=1,...,7\)), plasticity laws
+core, is critical for reliable simulations applied to industrials
+fields. In the meanwhile, those parameters are difficult to identify
+experimentally. Nanoindentation test seems to be a great choice for
+enhancing and distinguish slip systems interaction parameters.
+Nevertheless, the inverse method used (Finite Element Model Updating) to
+identify those parameters requires a CPFEM (Crystal plasticity Finite
+Element Model) of the test which is sustainable with the fewer
+computation time possible.
+
+This works aims to simulate nanoindentation testing (Ph curves and
+residuals topographies) of an FCC crystal using experimental
+crystal/indenter tip configuration, later used in an identification
+process. Hence, we investigate the experimental crystal orientations and
+the relative orientation between crystals references frames and the
+Berkovich tip. The crystal reference frame (in red) and the numerical
+reference frame (Ansys reference frame) are represented in figure 1 .
+The Méric-Cailletaud law [@meric_single_1991] has been implemented in
+the `MFront` code generation tool and coupled with `Ansys` finite
+elements software, for small and finite strains descriptions
+[@bhelfer_how_2020]. An implicit resolution is used to integrate the
+inelastic flow, for both behaviour descriptions. Finite strain tangent
+operator is handled by the `FiniteStrainSingleCrystal` brick, available
+in `MFront`. The Newton-Raphson algorithm is used to defined inelastic
+flow increments for each slip systems, describing the material
+behaviour. Using this coupling, the calculation time decreased from 4
+days (using Zebulon software, in a prior work [@renner_vers_2016]) to
+the order of 4 hours, allowing sustainability for a future
+identification process.
+
+!["Polycrystal simulations and experimental responses
+are presented in a). The crystal/indenter configuration is illustrated
+in b). Experimental residual topography is presented in c). From d) to
+f), numerical topographies for the three sets of plastic parameters are
+represented."](img/Bourceret.png){#fig:bourceret width=75%}
+
+To highlight the impact of the slip systems interaction parameters on
+topographies, we first used three sets of interaction parameters
+(\(\theta_{i}\), \(i=1,2,3\)) from literature
+[@renner_vers_2016;@meric_fe_1994;@madec_dislocation_2017]. The three
+plastic parameters (\(Q\), \(b\), \(\tau_{c}\) which leads the
+hardening) remaining are identified from tensile test using polycrystals
+modelling, in order to have the same macroscopic behaviour presented
+Figure @fig:bourceret. Using those three sets of parameters, Figure
+@fig:bourceret to illustrates the sensitivity of the residual topography
+to the interaction parameters. We can observe on Figure @fig:bourceret
+that the distinction between the three topographies in terms of heights
+and repartition of the pile-ups on the surface.
 
 <!--
 
