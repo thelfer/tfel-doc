@@ -485,4 +485,46 @@ de validation et d'utilisation sont ensuite présentés, et des
 perspectives de développement pour étendre la gamme des scénari
 d'utilisation de `MFront` à Michelin sont finalement proposées.
 
+# A temperature-dependent constitutive model for argillaceous hard soils - weak rocks
+
+- Miguel A. Mánica
+    - Institute of Engineering, National Autonomous University of Mexico, Mexico City, Mexico.
+- Eric Simo
+    - BGE TECHNOLOGY GmbH, Peine, Germany.
+- Philipp Herold
+    - BGE TECHNOLOGY GmbH, Peine, Germany.
+- Thomas Helfer
+    - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+- Thomas Nagel
+    - Technical University of Bergakademie Freiberg, Freiberg, Saxony, Germany.
+
+**Keyword**: MFront, OpenGeosSys, temperature dependence, THM analysis.
+
+This talk describes the implementation of a constitutive model through
+`MFront` to characterise the behaviour of argillaceous hard soils - weak
+rocks. Particularly, the model is intended to be used in the finite
+element code `OpenGeoSys`, to perform coupled thermo-hydro-mechanical
+analyses of underground excavations in the context of deep geological
+nuclear waste disposal. Special emphasis is placed on the effect that
+variations of temperature have on the behaviour of these indurated
+clayey materials.
+
+As identified in previous experimental research, heating saturated clays
+under drained conditions induces volume changes that depend on the
+stress history. Normally consolidated clays exhibit thermo-plastic
+contraction, while overconsolidated and indurated clayey materials show
+an initial thermo-elastic expansion, followed, at some threshold
+temperature, by irreversible contractive strains. On the other hand, the
+strength generally decreases as temperature increases. The implemented
+constitutive model accounts for the variation of mechanical properties
+to reproduce the observed behaviour, including the expansion-contraction
+transition identified in stiff clays. The latter is achieved in the
+context of multi-surface plasticity, where deviatoric and volumetric
+yield surfaces are assumed to depend on temperature. Some validation
+examples are presented, where laboratory tests with temperature
+variations are simulated both from a constitutive standpoint, with the
+`MTest` tool, and as a coupled THM boundary value problem in
+`OpenGeoSys`.
+
+
 # References
