@@ -4,7 +4,7 @@ Greeting
     [10h00 - 10h30] Back to basics: an introduction to MFront through isotropic Domain Specific Languages (DSL)
     [10h30 - 11h00] First experiences with MFront and MGIS on GPUs
     [11h00 - 11h30] Overview of TFEL-4.2 and MGIS-2.2
-    [11h30 - 12h00] Intégration de MGIS/MFront dans MEF++: interface et cas d'utilisations
+    [11h30 - 12h00] Multiphysics modelling of bonding/debonding phenomena at the pellet-cladding interface in nuclear fuels
 
 Launch break
 
@@ -15,7 +15,7 @@ Launch break
 
 Break
 
-    [16h00 - 16h30] Multiphysics modelling of bonding/debonding phenomena at the pellet-cladding interface in nuclear fuels
-    [16h30 - 17h00] Analyse sismique d’un canal par une approche dynamique transitoire simplifiée
+    [16h00 - 16h30] Analyse sismique d’un canal par une approche dynamique transitoire simplifiée
+    [16h30 - 17h00] Intégration de MGIS/MFront dans MEF++: interface et cas d'utilisations
     [17h00 - 17h30] Usage of MGIS in Manta: a case of study
     [17h30 - 18h00] Conclusions and discussions
