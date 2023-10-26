@@ -8,14 +8,14 @@ Greeting
 
 Launch break
 
-    [13h30 - 14h00] A temperature-dependent constitutive model for argillaceous hard soils - weak rocks
-    [14h00 - 14h30] Microstructure-based modelling of snow viscoplasticity using FFT simulations and MFront to model crystal plasticity
-    [14h30 - 15h00] Towards an MFront-based framework for the constitutive modelling of concrete at high strain rates
-    [15h00 - 15h30] Anisotropic damage and gradient-enhanced Eikonal regularization for quasi-brittle materials
+    [13h30 - 14h00] Microstructure-based modelling of snow viscoplasticity using FFT simulations and MFront to model crystal plasticity
+    [14h00 - 14h30] Towards an MFront-based framework for the constitutive modelling of concrete at high strain rates
+    [14h30 - 15h00] Anisotropic damage and gradient-enhanced Eikonal regularization for quasi-brittle materials
+    [15h00 - 15h30] Analyse sismique d’un canal par une approche dynamique transitoire simplifiée
 
 Break
 
-    [16h00 - 16h30] Analyse sismique d’un canal par une approche dynamique transitoire simplifiée
+    [16h00 - 16h30] A temperature-dependent constitutive model for argillaceous hard soils - weak rocks
     [16h30 - 17h00] Intégration de MGIS/MFront dans MEF++: interface et cas d'utilisations
     [17h00 - 17h30] Usage of MGIS in Manta: a case of study
     [17h30 - 18h00] Conclusions and discussions
