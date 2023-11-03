@@ -175,9 +175,9 @@ existing models.
 - Thomas Helfer
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
 - Olivier Jamond
-  - CEA Saclay, ISAS, DES, DM2S, SEMT, DYN
+  - CEA Saclay, ISAS, DES, DM2S, SEMT, DYN, 91191 Gif-sur-Yvette, France
 - Olivier Fandeur
-  - CEA Saclay, ISAS, DES, DM2S, SEMT, DYN
+  - CEA Saclay, ISAS, DES, DM2S, SEMT, LM2S, 91191 Gif-sur-Yvette, France
 
 `Manta` is developped at CEA to be a new generation software for the
 numerical simulation in mechanics geared toward HPC
