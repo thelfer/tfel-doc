@@ -72,7 +72,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 
 # Mesostructural modelling of polymer foams with shell elements in `FEnICS`
 
-- Lei Liu <lei.liu@chalmers.se>
+- Lei Liu
 
 # Implementation of Hoek-Brown Failure Criterion in MFront and its application to the rock with up to 3 ubiquitous joint sets
 
