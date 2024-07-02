@@ -79,7 +79,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Mehran Ghasabeh
   - TU Bergakademie Freiberg, Institute of Geotechnics, Chair of Soil Mechanics and Foundation Engineering, Gustav-Zeuner-1, 09599,Freiberg, Germany
 
-# No title yet
+# MFront/MGIS for the solution of a fictitious non-linear grid problem in Arbitrary Lagrange-Euler CFD simulations
 
 - Vincent Faucher
   - CEA Cadarache, IRESNE, DES, IRESNE, DTN, 13 108 St Paul lez Durance, France.
