@@ -70,7 +70,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 
 - Olivier Fandeur
 
-# Mesostructural modelling of polymer foams with shell elements in `FEnICS`
+# Micromechanical modelling of closed-cell polymer foams under compression by coupling `FEniCS` with `MFront`
 
 - Lei Liu
 
