@@ -56,17 +56,17 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Jérôme Sercombe
   - CEA Cadarache, IRESNE, DES, IRESNE, DEC, SESC, LEVA, 13 108 St Paul lez Durance, France.
 
-# <No title yet>
+# No title yet
 
 - Lamia Mersel
 - Pascal Bouda
   - Université Paris-Saclay, CEA, Service d’Etudes Mécaniques et Thermiques, 91191 Gif-sur-Yvette, France
 
-# <No title yet>
+# No title yet
 
 - Rodrigue Largenton
 
-# <No title yet>
+# No title yet
 
 - Olivier Fandeur
 
@@ -79,7 +79,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Mehran Ghasabeh
   - TU Bergakademie Freiberg, Institute of Geotechnics, Chair of Soil Mechanics and Foundation Engineering, Gustav-Zeuner-1, 09599,Freiberg, Germany
 
-# <No title yet>
+# No title yet
 
 - Vincent Faucher
   - CEA Cadarache, IRESNE, DES, IRESNE, DTN, 13 108 St Paul lez Durance, France.
