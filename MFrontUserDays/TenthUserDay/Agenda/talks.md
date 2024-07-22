@@ -56,7 +56,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Jérôme Sercombe
   - CEA Cadarache, IRESNE, DES, IRESNE, DEC, SESC, LEVA, 13 108 St Paul lez Durance, France.
 
-# An implementation of a unilateral constitutive law for a dynamic damage pĥase field modeling owing to a FEniCSx/MFront association
+# An implementation of a unilateral constitutive law for a dynamic damage phase field modeling owing to a FEniCSx/MFront association
 
 - Lamia Mersel
 - Pascal Bouda
