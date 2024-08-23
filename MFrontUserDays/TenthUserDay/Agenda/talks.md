@@ -19,6 +19,10 @@ bibliography: bibliography.bib
 csl: iso690-numeric-en.csl
 ---
 
+\newcommand{\Frac}[2]{{{\displaystyle \frac{\displaystyle #1}{\displaystyle #2}}}}
+\newcommand{\deriv}[2]{{\displaystyle \frac{\displaystyle \partial #1}{\displaystyle \partial #2}}}
+\newcommand{\derivtot}[2]{{\displaystyle \frac{\displaystyle \mathrm{d} #1}{\displaystyle \mathrm{d} #2}}}
+
 <!--
 pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc talks.md -o talks.pdf
 -->
@@ -37,9 +41,99 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Maxence Wangermez
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
 
-## Improving the robustness of implicit schemes using homotopy-based algorithms
+Version `5.0` is a port to the `TFEL` library to `C++-20` which a major
+overhaul of the `TFEL/Math` and `TFEL/Material` libraries.
 
-# Automatic differentiation with Enzyme
+See this page for a full description:
+<https://thelfer.github.io/tfel/web/release-notes-5.0.html>
+
+## Improvements to `MFront`
+
+## The MFrontJIT project
+
+\newpage
+
+# Improving the robustness of implicit schemes using homotopy-based algorithms
+
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
+
+In this talk, we show how to implement and use homotopy-based algorithms
+in `MFront` to enhance the robustness of implicit schemes. Such schemes
+leads to solve a system of non linear equations of the form:
+\[
+F\left(\Delta\,\vec{Y}\right) = 0
+\]
+where \(\Delta\,\vec{Y}\) are the value of the increment of the internal
+state variables.
+
+Homotopy algorithms introduces a parameter \(\mu\) continuously
+transforming the system of equations to be solved into a simpler one,
+the solution of which is trivial. By convention, \(\mu=0\) corresponds to
+the simpler system. The initial system is retrieved for a finite
+positive value \(\mu_{inf}\).
+
+Homotopy algorithms thus solve a set of non-linear equations:
+\[
+F_{\mu}\left(\Delta\,\vec{Y}_{\mu}, \mu\right) = 0
+\]{#eq:homotopy:mu_system}
+
+by making the \(\mu\) parameter from \(0\) to \(\mu_{inf}\), the
+solutions \(\Delta\,\vec{Y}_{\mu}\) evolving from the trivial solution
+\(\Delta\,\vec{Y}_{0}\) to the searched one \(\Delta\,\vec{Y}\).
+
+Two algorithms are discussed:
+
+- The first one uses the \(\theta\)-parameter of the implicit scheme as
+  the homotopy parameter. For \(\mu=0\), the implicit scheme corresponds
+  to the explicit Euler scheme which is trivial for viscoplastic
+  behaviours. The initial system is retrieved for \(\mu=\theta\). This
+  algorithm is not applicable to time-independent behaviours
+  (plasticity, damage) as the system of equations degenerates for
+  \(\theta=0\) in those cases.
+- The second one uses a new parameter which is only valid for standard
+  (visco)-plastic behaviours. The parameter allows to make a smooth
+  transition between a system describing an elastic behaviour and the
+  system to be solved. We will show that plasticity requires special
+  care.
+
+Once the dependency to the homotopy parameter is chosen, the question of
+how to make it evolves must be settled. Two strategies will be
+discussed:
+
+- The first one consists in starting with \(\mu=\mu_{inf}\) and
+  decreasing the value of \(\mu\) by a factor \(2\) if one cannot solve
+  System @eq:homotopy:mu_system. In this case, we do not rely on the
+  fact that the solution is known for \(\mu=0\), but on the fact that
+  System @eq:homotopy:mu_system is simplier to solve when \(\mu\)
+  decreases. Once System @eq:homotopy:mu_system can be solved, the
+  value of \(mu\) can be gradually increased again. Each step provides a
+  better estimate of the solution. This strategy is meaningful if the
+  Newton method is satisfying most of the times and allows to treat rare
+  divergences.
+- The second one uses the implicit function theorem to find an ordinary
+  differential equation satisfied by \(\Delta\,\vec{Y}_{\mu}\):
+  \[
+  \derivtot{\Delta\,\vec{Y}_{\mu}}{\mu}=-\left(\deriv{F_{\mu}}{\Delta\,\vec{Y}_{\mu}}\right)^{-1}\,\deriv{F_{\mu}}{\mu}
+  \]
+  This ordinary differential equation can be solved by one of the
+  Runge-Kutta algorithm available in the `TFEL/Math` library using
+  the initial value \(\Delta\,\vec{Y}_{0}\).
+
+Those algorithms are applied to two test cases for which the Newton
+method exhibits poor performances.
+
+As a perspective, we will also discuss how those algorithms could be
+transposed at the structural scale in a straight-forward manner.
+
+\newpage
+
+# MFront implementation of Zirconium alloys high temperature oxidation laws
+
+- Ali Charbal
+  - CEA Sacaly, ISAS, DES, DRMP, SRMA, LC2M, 91191 Gif-sur-Yvette, France
+
+# Automatic differentiation with Enzyme: application to hyperelastic materials
 
 - Arthur Geromel Fischer
   - Recherche et Développement - DORD/PM/ZEU/SIM/ER
@@ -48,6 +142,25 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
 - Maxence Wangermez
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
+
+[`Enzyme`](https://enzyme.mit.edu/) is a [`LLVM`](https://llvm.org/)
+compiler plugin that performs automatic differentiation (AD) in forward
+and reverse mode. It aims at generating high performance gradients of
+programs in languages including `C/C++`, `Fortran`, `Julia`, and `Rust`
+[@moses_reverse-mode_2021,@moses_scalable_2022].
+
+A library, named
+[`TFELMathEnzyme`](https://github.com/thelfer/TFELMathEnzyme), is
+currently under development to seamlessly integrate `TFELMath` with
+`Enzyme` to compute the derivatives of arbitrary functions.
+
+In this talk, we present some experiments on using `TFELMathEnzyme` in
+`MFront` to compute:
+
+- the stress and consistent tangent operator from the free energy of
+  some hyperelastic materials.
+- the normal and its derivative of some yield surfaces for plastic
+  behaviours.
 
 # Modeling clad failure in Reactivity Injection Accident by non local constitutive equations
 
@@ -107,7 +220,6 @@ Finally, the `MGIS` implementation introduced in `TrioCFD` is also
 directly inherited from the one available in the new generation program
 for mechanics `MANTA` [@jamond_manta_2022;@jamond_manta_2024]
 for another example of positive resources sharing and cooperation.
-
 
 # Advanced material modeling in FEniCSx
 
