@@ -51,8 +51,6 @@ See this page for a full description:
 
 ## The MFrontJIT project
 
-\newpage
-
 # Improving the robustness of implicit schemes using homotopy-based algorithms
 
 - Thomas Helfer
@@ -126,8 +124,6 @@ method exhibits poor performances.
 As a perspective, we will also discuss how those algorithms could be
 transposed at the structural scale in a straight-forward manner.
 
-\newpage
-
 # MFront implementation of Zirconium alloys high temperature oxidation laws
 
 - Ali Charbal
@@ -162,12 +158,64 @@ In this talk, we present some experiments on using `TFELMathEnzyme` in
 - the normal and its derivative of some yield surfaces for plastic
   behaviours.
 
-# Modeling clad failure in Reactivity Injection Accident by non local constitutive equations
+# Modeling Zy-4 cladding failure during a Reactivity Initiated Accident with a GTN non local damage model
+
 
 - Matthieu Reymond
-  - CEA Cadarache, IRESNE, DES, IRESNE, DEC, SESC, LEVA, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE, DES, DEC, SESC
+  - Ecole Polytechnique Fédérale de Lausanne, Laboratory for Reactor Physics and Systems Behaviour
 - Jérôme Sercombe
-  - CEA Cadarache, IRESNE, DES, IRESNE, DEC, SESC, LEVA, 13 108 St Paul lez Durance, France.
+  - CEA Cadarache, IRESNE, DES, DEC, SESC
+- Jérémy Hure
+  - CEA Saclay, DES, ISAS, DRMP, SEMI
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC
+  
+Cladding failure during the Pellet-Clad Mechanical Interaction (PCMI)
+phase of a Reactivity Initiated Accident (RIA) have been shown to be the
+result of a mixed mode mechanism with a brittle fracture of the heavily
+hydrided periphery followed by a ductile propagation in the remaining
+clad ligament ([@Sercombe2016]).
+
+In this work, the ductile fracture propagation in hydrided Zircaloy-4
+cladding tubes is modelled with a Gurson-Tveergard-Needleman (GTN)
+damage model. The extended GTN potential for anisotropic and
+viscoplastic behaviors is used, considering Hill's yield criterion to
+account for the plastic anisotropy of Zircaloy-4 ([@LeSaux2015]). This
+GTN model account for void nucleation under shear dominated loading
+conditions which are specific to RIA with an additional shear controlled
+voids nucleation rate based on the Lode parameter of the plastic strain
+rate tensor ([@Macdonald2016], [@Morgeneyer2011]).
+
+However, it is well-known that one of the limitations of local damage
+models are their pathological mesh size and orientation dependency. In
+this work, the GTN model is regularised with an implicit gradient
+formulation with two internal lengths associated respectively to void
+nucleation and growth.
+
+The implementation of the implicit gradient formulation with `MFront`
+and the `Cast3M` finite element solver is first presented and the
+behavior of the regularised GTN model is discussed. In particular, we
+will show that the width of the damage band can be controlled with the
+characteristics lengths introduced by the implicit gradient formulation.
+
+The `Cast3M` generalised plane strain 2D-(r$\theta$) scheme developed
+for RIA simulations is then presented. Simulations results of the recent
+experiments carried out in the Nuclear Safety Research Reactor (NSRR,
+Japan) are presented and compared to experimental observations. In
+particular, our model accurately reproduces the slant fracture beneath
+the brittle fracture that is observed in metallographic examinations
+(Fig. @fig:GTN).
+
+Perspective of this work is the potential implementation of the
+2D-(r$\theta$) scheme and underlying models in the ALCYONE fuel
+performance code of the CEA ([@Sercombe2016]).
+
+![Through-wall fracture of a Zircaloy-4 cladding tube obtained with the
+GTN model. The typical 45° fracture direction below the brittle fracture
+of the hydrided periphery obtained during integral tests (see
+metallography, test CABRI REP-Na8) is well
+reproduced.](img/ReymondGTN.png){#fig:GTN width=95%}
 
 # An implementation of a unilateral constitutive law for a dynamic damage phase field modeling owing to a FEniCSx/MFront association
 
