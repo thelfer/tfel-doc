@@ -349,24 +349,25 @@ transient phase.
 
 During LOCA transients, the cladding experiences rapid heating due to
 the residual heat from the uranium pellets combined with the loss of
-primary coolant. After the first temperature peak is reached, the
-cladding continues to heat up more slowly, allowing time for the
-emergency cooling systems to take effect. The evaporation of water from
-the primary circuit as steam causes accelerated oxidation of the
-cladding materials at high temperatures. To prevent cladding
-fragmentation, the fuel cladding materials must also meet certain
+primary coolant. After a first temperature peak is reached, the cladding
+continues to heat up more slowly, allowing time for the emergency
+cooling systems to operate. The evaporation of water from the primary
+circuit as steam causes accelerated oxidation of the cladding materials
+at high temperatures. To prevent cladding fragmentation due to excessive
+oxidation, the fuel cladding materials must also meet certain
 physicochemical requirements (oxidation and/or hydriding limited to a
 certain level) to ensure their strength during the final quench (and
-ensure sufficient "post-quench" ductility).
+ensure sufficient "post-quench" strength and ductility).
 
-At CEA experimental methods have been developed in order to establish
-oxidation laws that describe the cladding tubes behaviors at high
-temperature under water vapor atmosphere. The evolutions of the mass
-gain, the zirconia and alpha(O) thicknesses were determined for various
-alloys. Recently these laws were implemented in `MFront`. After
-presenting an overview of the different CEA experimental rigs used for
-oxidation laws determination, examples of oxidation laws implemented in
-`MFront` are illustrated.
+At CEA experimental methods have been developed over the two past
+decades in order to establish oxidation laws that describe the cladding
+tubes behaviors at high temperature under water vapor atmosphere. The
+evolutions of the mass gain, the zirconia and alpha(O) thicknesses were
+determined for various alloys. Recently these laws were implemented in
+`MFront`. After presenting an overview of the different CEA experimental
+rigs and methodologies used for HT oxidation kinematic laws
+determination, examples of oxidation laws implemented in `MFront` are
+illustrated.
 
 <!--
 # VTT?
