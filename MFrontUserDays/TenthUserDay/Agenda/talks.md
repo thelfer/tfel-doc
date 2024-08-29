@@ -124,11 +124,6 @@ method exhibits poor performances.
 As a perspective, we will also discuss how those algorithms could be
 transposed at the structural scale in a straight-forward manner.
 
-# MFront implementation of Zirconium alloys high temperature oxidation laws
-
-- Ali Charbal
-  - CEA Sacaly, ISAS, DES, DRMP, SRMA, LC2M, 91191 Gif-sur-Yvette, France
-
 # Automatic differentiation with Enzyme: application to hyperelastic materials
 
 - Arthur Geromel Fischer
@@ -159,7 +154,6 @@ In this talk, we present some experiments on using `TFELMathEnzyme` in
   behaviours.
 
 # Modeling Zy-4 cladding failure during a Reactivity Initiated Accident with a GTN non local damage model
-
 
 - Matthieu Reymond
   - CEA Cadarache, IRESNE, DES, DEC, SESC
@@ -222,6 +216,40 @@ reproduced.](img/ReymondGTN.png){#fig:GTN width=95%}
 - Lamia Mersel
 - Pascal Bouda
   - Université Paris-Saclay, CEA, Service d’Etudes Mécaniques et Thermiques, 91191 Gif-sur-Yvette, France
+
+Keywords : phase field for fracture model, isotropic behavior, transient regime, unilaterial condition
+
+The phase field approach to fracture modeling
+[@bourdin_variational_2008;@borden_phase-field_2012;@ziaei-rad_massive_2016]
+has faced significant advancements in recent years, mostly focusing on
+quasi-static regimes in isotropic brittle materials. However, the
+challenge of accurately representing unilateral contact conditions
+between crack lips remains an obstacle. Indeed, spurious crack can
+appear under compressive forces, necessitating a more sophisticated
+treatment of the elastic energy density [@chaboche_damage_1992].
+
+The classical splitting models, such as the spherical-deviatoric
+[@amor_regularized_2009] and spectral strain decompositions
+[@miehe_phase_2010], have shown some limitations when applied to dynamic
+fracture regimes or anisotropic materials where the orthogonality
+between stress and strain eigenvalues is not preserved. To this end, a
+novel approach that leverages the square root of the elastic tensor
+within the Kelvin decomposition framework
+[@desmorat_dissymetrie_2000;@francois_damage_2012;@he_closed-form_2019],
+offering a promising alternative for capturing the complex behavior of
+materials under transient loading conditions.
+
+We present an implementation of this model using MFront, integrated with
+the open-source FEniCSx software [@baratta_dolfinx_2023], a powerful
+tool for solving partial differential equations (PDEs). Building upon
+the previous work of [@bleyer_overview_2020] on fenics-mgis module, we
+have updated and extended their contributions to accommodate the latest
+features of FEniCS.
+
+The presentation will detail our computational framework and discuss on
+a comparative analysis of the various elastic energy density
+decompositions in the context of transient brittle fracture mechanics,
+providing valuable insights for future research in this domain.
 
 # Comportement polycristallin de l’UO2: développements, au format `MFront`, de lois micromécaniques basées sur l’approche NTFA et validations
 
@@ -298,6 +326,47 @@ supports material models defined by the `MFront` code generator.
 Additionally, advanced material modeling techniques such as multiscale
 material models using Thermodynamics-based Artificial Neural Networks
 (TANN) can also be used very easily.
+
+# Zirconium alloys high temperature oxidation laws determination and MFront implementation
+
+- Ali Charbal
+  - CEA Saclay, ISAS, DES, DRMP, SRMA, LA2M, 91 191 Gif sur Yvette, Essonne, France
+- Thomas Guilbert
+  - CEA Saclay, ISAS, DES, DRMP, SRMA, LA2M, 91 191 Gif sur Yvette, Essonne, France
+- Maxence Wangermez
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+- Jean-Christophe Brachet
+  - CEA Saclay, ISAS, DES, DRMP, SRMA, LA2M, 91 191 Gif sur Yvette, Essonne, France
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LSC, 13 108 St Paul lez Durance, France.
+
+The knowledge of the behavior of cladding materials under hypothetical
+accident conditions, such as Loss-of-Coolant Accident (LOCA), is
+essential for the "design" of emergency cooling systems for nuclear
+reactors. Specifically, it is crucial to ensure that the geometry of the
+fuel assemblies remains "coolable" at every point during and after the
+transient phase.
+
+During LOCA transients, the cladding experiences rapid heating due to
+the residual heat from the uranium pellets combined with the loss of
+primary coolant. After the first temperature peak is reached, the
+cladding continues to heat up more slowly, allowing time for the
+emergency cooling systems to take effect. The evaporation of water from
+the primary circuit as steam causes accelerated oxidation of the
+cladding materials at high temperatures. To prevent cladding
+fragmentation, the fuel cladding materials must also meet certain
+physicochemical requirements (oxidation and/or hydriding limited to a
+certain level) to ensure their strength during the final quench (and
+ensure sufficient "post-quench" ductility).
+
+At CEA experimental methods have been developed in order to establish
+oxidation laws that describe the cladding tubes behaviors at high
+temperature under water vapor atmosphere. The evolutions of the mass
+gain, the zirconia and alpha(O) thicknesses were determined for various
+alloys. Recently these laws were implemented in `MFront`. After
+presenting an overview of the different CEA experimental rigs used for
+oxidation laws determination, examples of oxidation laws implemented in
+`MFront` are illustrated.
 
 <!--
 # VTT?
