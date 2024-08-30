@@ -282,7 +282,7 @@ Furthermore, the model considers three arbitrarily oriented joint planes in a co
 
 [1] E. Hoek and E. T. Brown, “Empirical strength criterion for rock masses,” _Journal of the geotechnical engineering division_, vol. 106, no. 9, pp. 1013–1035, 1980.
 
-[2] E. T. Brown and E. Hoek, _Underground excavations in rock_. CRC Press, 1980.
+[2] E. T. Brown and E. Hoek, Underground excavations in rock. CRC Press, 1980.
 
 [3] E. Hoek. Brittle failure of rock. rock mechanics in engineering practice. _Rock Mechanics in Engineering Practice_, pp. 99–124, 1968.
 
