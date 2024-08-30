@@ -266,7 +266,34 @@ providing valuable insights for future research in this domain.
 # Implementation of Hoek-Brown Failure Criterion in MFront and its application to the rock with up to 3 ubiquitous joint sets
 
 - Mehran Ghasabeh
-  - TU Bergakademie Freiberg, Institute of Geotechnics, Chair of Soil Mechanics and Foundation Engineering, Gustav-Zeuner-1, 09599,Freiberg, Germany
+  - Institute of Geotechnics, Gustav Zeuner 1, TU Bergakademie Freiberg, Freiberg, Germany
+- Tymofiy Gerasimov
+  - BGE TECHNOLOGY GmbH, Eschenstraße 55, Peine, Germany 
+- Thomas Nagel
+  - Institute of Geotechnics, Gustav Zeuner 1, TU Bergakademie Freiberg, Freiberg, Germany
+
+The Hoek-Brown model is defined as a nonlinear empirical strength criterion extensively applied for quantifying the bearing capacity and deformation of rock masses, which is proposed in the work of Hoek and Brown [1, 2] to provide a tool for solving a series of rock mechanics problems such as analyzing and designing underground excavations and openings in hard rock and cavern. It is also applied to instability problems in many cases, such as slopes, barholes, and shallow tunnels, and finding the bearing capacity over rocks. The model is mathematically derived based on the work conducted by Heok in 1968 [3]. The generalized Hoek-Brown model is proposed in the work of Hoek and Brown in 1980 [1]. One notable advantage of the Hoek-Brown failure criterion compared to other criteria in the literature is its ability to assess the strength and deformation characteristics of heavily jointed rock masses using the Geological Strength Index (GSI). The GSI reflects the impact of field observations on the mechanical properties of rock masses, such as their structural features (or blockiness) and the condition of the joints. Therefore, all the mechanical properties of rock masses can be reckoned as a function of GSI.
+
+However, this model presents computational challenges due to gradient discontinuities that appear at both the edges and apex of the hexagonal yield surface pyramid. To overcome these challenges, this study proposes a simpler hyperbolic yield surface that eliminates the singular apex in the meridian plane, resulting in a smoother and more computationally efficient model. Additionally, the study develops a modified yield surface that incorporates a hyperbolic approximation with an octahedral rounding technique. This technique, initially suggested by Sloan and Booker [3], has been adapted to the Mohr-Coulomb yield surface by Abbo et al. [5] and Nagel et al. [6], helping to further smooth the yield surface and improve numerical stability. Moreover, the anisotropic behaviour of rock masses manifests in certain problems, such as shear failure in argillaceous rock due to fault slip and in the modeling of tunnel excavation. In both cases, it is crucial to consider failure along the embedded planes of weakness. Therefore, the Hoek-Brown model is then extended to the multi-surface plasticity model with up to 3 ubiquitous joint sets by considering a non-asscociated Coloum behaviour for weakness planes.
+
+Furthermore, the model considers three arbitrarily oriented joint planes in a complex scenario. The model developed in MFront is subsequently integrated with OpenGeoSys to address multi-physics problems in geoscientific and geoscience applications.
+
+## References
+
+[1] E. Hoek and E. T. Brown, “Empirical strength criterion for rock masses,” _Journal of the geotechnical engineering division_, vol. 106, no. 9, pp. 1013–1035, 1980.
+
+[2] E. T. Brown and E. Hoek, Underground excavations in rock. CRC Press, 1980.
+
+[3] E. Hoek. Brittle failure of rock. rock mechanics in engineering practice. _Rock Mechanics in Engineering Practice_, pp. 99–124, 1968.
+
+[4] S. Sloan and J. Booker, “Removal of singularities in Tresca and Mohr-Coulomb yield functions,” _Communications in Applied Numerical Methods_, vol. 2, no. 2, pp. 173–179, 1986.
+
+[5] A. Abbo, A. Lyamin, S. Sloan, and J. Hambleton, “A C2 continuous approximation to the Mohr–Coulomb yield surface,” _International Journal of Solids and Structures_, vol. 48, no. 21, pp. 3001–3010, 2011.
+
+[6] T. Nagel, W. Minkley, N. Böttcher, and D. Naumov, “Implicit numerical integration and consistent linearization of inelastic constitutive models of rock salt, _Computers Structures_, vol. 182, pp. 87-103, 2017.
+##
+
+
 
 # MFront/MGIS for the solution of a fictitious non-linear grid problem in Arbitrary Lagrange-Euler CFD simulations
 
