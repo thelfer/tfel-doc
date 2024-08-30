@@ -261,7 +261,47 @@ providing valuable insights for future research in this domain.
 
 # Micromechanical modelling of closed-cell polymer foams under compression by coupling `FEniCS` with `MFront`
 
-- Lei Liu
+- Lei Liu1
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+- Fang Liu
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+- Dan Zenkert
+  - KTH Royal Institute of Technology, SE-10044 Stockholm, Sweden
+- Malin Åkermo
+  - KTH Royal Institute of Technology, SE-10044 Stockholm, Sweden
+- Martin Fagerström
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+
+This presentation will introduce an original usage of FEniCS and MFront
+to investigate the complex micromechanical behaviour of cellular
+materials, e.g. closed-cell foams. Closed-cell foams are being widely
+utilized in modern engineering applications due to their excellent
+mechanical properties. Given the exploitation of closed-cell foams for
+load-bearing in engineering structures, the compressive behaviour is
+often of interest. In order to understand the deformation and failure
+mechanisms, micromechanical modelling is performed.
+
+Polyvinyl Chloride (PVC) foam grade H100 is focused on as one example.
+Representative volume element (RVE) of the foam mesostructures is
+generated using Laguerre tessellation techniques which incorporates the
+cell size, cell wall thickness and cell aspect ratio measured by
+experiments. The RVE model is discretized using geometrically nonlinear
+shell elements [@campello_triangular_2003]. The base material behaviour
+is described using a stress resultant-based isotropic elastoplastic
+model [@dujc_stress_2012], which is based on Ilyushin-Shapiro
+two-surface criterion and implemented through `MFront`. The displacement
+fluctuations are to be solved for rather than the total displacements.
+Uniform displacement boundary conditions are enforced by suppressing the
+displacement fluctuations on all external boundaries. Uniaxial
+compressive loading is applied by prescribing macroscale deformation
+gradient in one direction, with the transverse stress-free conditions
+enforced using Lagrange multiplier method.
+
+Numerical simulations of single cell model and RVE model under
+compression in different directions are conducted through `FEniCS`. The
+results show that the cell wall membrane deformation dominates the
+initial elastic region and the cell wall elastic buckling acts as the
+leading failure mode for the considered PVC foam grade.
 
 # Implementation of Hoek-Brown Failure Criterion in MFront and its application to the rock with up to 3 ubiquitous joint sets
 
