@@ -51,6 +51,8 @@ See this page for a full description:
 
 ## The MFrontJIT project
 
+## The PlaxisMGIS interface
+
 # Improving the robustness of implicit schemes using homotopy-based algorithms
 
 - Thomas Helfer
@@ -110,7 +112,8 @@ discussed:
   Newton method is satisfying most of the times and allows to treat rare
   divergences.
 - The second one uses the implicit function theorem to find an ordinary
-  differential equation satisfied by \(\Delta\,\vec{Y}_{\mu}\):
+  differential equation satisfied by \(\Delta\,\vec{Y}_{\mu}\)
+ (see @liao_approximate_1995):
   \[
   \derivtot{\Delta\,\vec{Y}_{\mu}}{\mu}=-\left(\deriv{F_{\mu}}{\Delta\,\vec{Y}_{\mu}}\right)^{-1}\,\deriv{F_{\mu}}{\mu}
   \]
@@ -246,14 +249,12 @@ the previous work of [@bleyer_overview_2020] on fenics-mgis module, we
 have updated and extended their contributions to accommodate the latest
 features of FEniCS.
 
+![Kalthoff and Winkler experiment](img/kalthoff_front.png)
+
 The presentation will detail our computational framework and discuss on
 a comparative analysis of the various elastic energy density
 decompositions in the context of transient brittle fracture mechanics,
 providing valuable insights for future research in this domain.
-
-# Comportement polycristallin de l’UO2: développements, au format `MFront`, de lois micromécaniques basées sur l’approche NTFA et validations
-
-- Rodrigue Largenton
 
 # No title yet
 
@@ -312,28 +313,50 @@ leading failure mode for the considered PVC foam grade.
 - Thomas Nagel
   - Institute of Geotechnics, Gustav Zeuner 1, TU Bergakademie Freiberg, Freiberg, Germany
 
-The Hoek-Brown model is defined as a nonlinear empirical strength criterion extensively applied for quantifying the bearing capacity and deformation of rock masses, which is proposed in the work of Hoek and Brown [1, 2] to provide a tool for solving a series of rock mechanics problems such as analyzing and designing underground excavations and openings in hard rock and cavern. It is also applied to instability problems in many cases, such as slopes, barholes, and shallow tunnels, and finding the bearing capacity over rocks. The model is mathematically derived based on the work conducted by Heok in 1968 [3]. The generalized Hoek-Brown model is proposed in the work of Hoek and Brown in 1980 [1]. One notable advantage of the Hoek-Brown failure criterion compared to other criteria in the literature is its ability to assess the strength and deformation characteristics of heavily jointed rock masses using the Geological Strength Index (GSI). The GSI reflects the impact of field observations on the mechanical properties of rock masses, such as their structural features (or blockiness) and the condition of the joints. Therefore, all the mechanical properties of rock masses can be reckoned as a function of GSI.
+The Hoek-Brown model is defined as a nonlinear empirical strength
+criterion extensively applied for quantifying the bearing capacity and
+deformation of rock masses, which is proposed in the work of Hoek and
+Brown [@hoek1980empirical;@brown1980underground] to provide a tool for
+solving a series of rock mechanics problems such as analyzing and
+designing underground excavations and openings in hard rock and cavern.
+It is also applied to instability problems in many cases, such as
+slopes, barholes, and shallow tunnels, and finding the bearing capacity
+over rocks. The model is mathematically derived based on the work
+conducted by Heok in 1968 [@hoek1968brittle]. The generalized Hoek-Brown
+model is proposed in the work of Hoek and Brown in 1980
+[@hoek1980empirical]. One notable advantage of the Hoek-Brown failure
+criterion compared to other criteria in the literature is its ability to
+assess the strength and deformation characteristics of heavily jointed
+rock masses using the Geological Strength Index (GSI). The GSI reflects
+the impact of field observations on the mechanical properties of rock
+masses, such as their structural features (or blockiness) and the
+condition of the joints. Therefore, all the mechanical properties of
+rock masses can be reckoned as a function of GSI.
 
-However, this model presents computational challenges due to gradient discontinuities that appear at both the edges and apex of the hexagonal yield surface pyramid. To overcome these challenges, this study proposes a simpler hyperbolic yield surface that eliminates the singular apex in the meridian plane, resulting in a smoother and more computationally efficient model. Additionally, the study develops a modified yield surface that incorporates a hyperbolic approximation with an octahedral rounding technique. This technique, initially suggested by Sloan and Booker [3], has been adapted to the Mohr-Coulomb yield surface by Abbo et al. [5] and Nagel et al. [6], helping to further smooth the yield surface and improve numerical stability. Moreover, the anisotropic behaviour of rock masses manifests in certain problems, such as shear failure in argillaceous rock due to fault slip and in the modeling of tunnel excavation. In both cases, it is crucial to consider failure along the embedded planes of weakness. Therefore, the Hoek-Brown model is then extended to the multi-surface plasticity model with up to 3 ubiquitous joint sets by considering a non-asscociated Coloum behaviour for weakness planes.
+However, this model presents computational challenges due to gradient
+discontinuities that appear at both the edges and apex of the hexagonal
+yield surface pyramid. To overcome these challenges, this study proposes
+a simpler hyperbolic yield surface that eliminates the singular apex in
+the meridian plane, resulting in a smoother and more computationally
+efficient model. Additionally, the study develops a modified yield
+surface that incorporates a hyperbolic approximation with an octahedral
+rounding technique. This technique, initially suggested by Sloan and
+Booker [@sloan1986removal], has been adapted to the Mohr-Coulomb yield
+surface by Abbo et al. [@abbo2011c2] and Nagel et al.
+[@nagel2017implicit], helping to further smooth the yield surface and
+improve numerical stability. Moreover, the anisotropic behaviour of rock
+masses manifests in certain problems, such as shear failure in
+argillaceous rock due to fault slip and in the modeling of tunnel
+excavation. In both cases, it is crucial to consider failure along the
+embedded planes of weakness. Therefore, the Hoek-Brown model is then
+extended to the multi-surface plasticity model with up to 3 ubiquitous
+joint sets by considering a non-asscociated Coloum behaviour for
+weakness planes.
 
-Furthermore, the model considers three arbitrarily oriented joint planes in a complex scenario. The model developed in MFront is subsequently integrated with OpenGeoSys to address multi-physics problems in geoscientific and geoscience applications.
-
-## References
-
-[1] E. Hoek and E. T. Brown, “Empirical strength criterion for rock masses,” _Journal of the geotechnical engineering division_, vol. 106, no. 9, pp. 1013–1035, 1980.
-
-[2] E. T. Brown and E. Hoek, Underground excavations in rock. CRC Press, 1980.
-
-[3] E. Hoek. Brittle failure of rock. rock mechanics in engineering practice. _Rock Mechanics in Engineering Practice_, pp. 99–124, 1968.
-
-[4] S. Sloan and J. Booker, “Removal of singularities in Tresca and Mohr-Coulomb yield functions,” _Communications in Applied Numerical Methods_, vol. 2, no. 2, pp. 173–179, 1986.
-
-[5] A. Abbo, A. Lyamin, S. Sloan, and J. Hambleton, “A C2 continuous approximation to the Mohr–Coulomb yield surface,” _International Journal of Solids and Structures_, vol. 48, no. 21, pp. 3001–3010, 2011.
-
-[6] T. Nagel, W. Minkley, N. Böttcher, and D. Naumov, “Implicit numerical integration and consistent linearization of inelastic constitutive models of rock salt, _Computers Structures_, vol. 182, pp. 87-103, 2017.
-##
-
-
+Furthermore, the model considers three arbitrarily oriented joint planes
+in a complex scenario. The model developed in MFront is subsequently
+integrated with OpenGeoSys to address multi-physics problems in
+geoscientific and geoscience applications.
 
 # MFront/MGIS for the solution of a fictitious non-linear grid problem in Arbitrary Lagrange-Euler CFD simulations
 
@@ -435,6 +458,55 @@ determined for various alloys. Recently these laws were implemented in
 rigs and methodologies used for HT oxidation kinematic laws
 determination, examples of oxidation laws implemented in `MFront` are
 illustrated.
+
+# SICRAC, a creep simulation tool for the justification of irradiated fuel rod integrity in back-end conditions
+
+- A. El Abdi
+  - EDF R&D, MMC Department, Avenue des Renardières, 77818 Moret-Sur-Loing, France
+- J. Jonnet
+  - EDF R&D, MMC Department, Avenue des Renardières, 77818 Moret-Sur-Loing, France
+- A. Ambard
+  - EDF R&D, MMC Department, Avenue des Renardières, 77818 Moret-Sur-Loing, France
+- M. Ton-That
+  - EDF, Technical Division, Rue Pierre Bourdeix, 69007 Lyon, France
+- D. Costa
+  - EDF, Nuclear Fuel Division, Pl. Pleyel, 93200 Saint-Denis, France
+- L. Idoux
+  - EDF R&D, PERICLES Department, Bd Gaspard Monge, 91120 Palaiseau, France
+
+After irradiation, used nuclear fuel assemblies can be subjected to high
+temperatures during back-end operations such as drying, transportation
+to storage facilities, and potentially dry storage (as opposed to wet
+storage).
+
+Cladding creep has been identified as the most detrimental mechanism
+affecting the integrity of the fuel rod cladding at high temperatures.
+To ensure the integrity of the rod under back-end conditions, it is
+important to demonstrate non-rupture of the cladding, taking into
+account key parameters influencing creep, such as the end-of-life
+internal pressure and the cladding temperature.
+
+A dedicated numerical tool has been developed to calculate the creep
+behavior of an irradiated fuel rod cladding under back-end conditions.
+This tool, called SICRAC (Simulation de l’Intégrité du CRayon
+combustible en Aval du Cycle), is developed in Python and relies on the
+MFront and Ptest tools for modeling the mechanical behavior of the
+cladding.
+
+Similar to 1.5D fuel rod codes, the rod is discretized into axial
+segments. The tool includes a feedback loop that accounts for the
+increase in rod free volume due to the cladding deformation, leading to
+a subsequent decrease in the internal pressure, which is also slightly
+influenced by the differential thermal expansion of the fuel pellets and
+cladding. This feedback mechanism represents a leak-free irradiated fuel
+rod experiencing creep under internal pressure with a given axial
+temperature profile.
+
+The mechanisms mentioned above, along with their numerical
+implementation, are discussed. A sensitivity analysis is also presented,
+emphasizing the impact of key parameters on the cladding creep behaviour
+and the rod integrity.
+
 
 <!--
 # VTT?
