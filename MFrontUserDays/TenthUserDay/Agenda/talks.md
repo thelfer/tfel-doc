@@ -256,9 +256,10 @@ a comparative analysis of the various elastic energy density
 decompositions in the context of transient brittle fracture mechanics,
 providing valuable insights for future research in this domain.
 
-# No title yet
+# Un exemple de modèle de comportement d'un matériau multiphasé couplant mécanique élastoviscoplastique et transformations de phase métallurgiques
 
 - Olivier Fandeur
+  - CEA Sacalay, ISAS, DES, DM2S, SEMT, LM2S
 
 # Micromechanical modelling of closed-cell polymer foams under compression by coupling `FEniCS` with `MFront`
 
