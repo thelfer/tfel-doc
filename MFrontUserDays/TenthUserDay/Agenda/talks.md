@@ -1,5 +1,5 @@
 ---
-title: Agenda of the tenth `MFront` User Meeting
+title: Abstracts of the tenth `MFront` User Meeting
 author: Thomas Helfer, Maxence Wangermez
 date: 02/10/2023
 toc: true
