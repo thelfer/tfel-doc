@@ -17,6 +17,12 @@ secPrefixTemplate: "$$i$$"
 eqnPrefixTemplate: "($$i$$)"
 bibliography: bibliography.bib
 csl: iso690-numeric-en.csl
+header-includes: |
+     \usepackage{caption}
+     \captionsetup[figure]{
+        name=,
+        labelsep=none,
+        labelformat=empty}
 ---
 
 \newcommand{\Frac}[2]{{{\displaystyle \frac{\displaystyle #1}{\displaystyle #2}}}}
@@ -47,7 +53,7 @@ See this page for a full description:
 - Thomas Helfer
     - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
 
-![](img/fibres.png){width=50% align=center}
+![&nbsp;](img/fibres.png){width=50% align=center}
 
 The ANOHONA project gathers some of the best french experts in the
 mean-field homogenization. One of the main goals of the project is to
@@ -138,17 +144,21 @@ behaviour with `code_aster` computations.
 The nucleation, growth, and coalescence of voids are major physical
 mechanisms involved in the ductile fracture of metal alloys. Modeling
 this failure mode and predicting ductile tearing requires constitutive
-equations that involve porosity as an additional state variable. Many
-constitutive equations have been proposed in the literature, but only a
-few are available in finite element solvers. To capitalize on these laws
-and provide a state-of-the-art, easy-to-use numerical implementation of
-constitutive equations for porous materials, the MFront
-StandardElastoViscoPlasticity brick was extended to porous materials a
-few years ago. First, this extension's capabilities will be reviewed in
-terms of ductile tearing predictions using different FEM solvers
-(Cast3M, MANTA, and code_aster) and FFT solvers (AMITEX_FFTP). Second,
-advanced constitutive equations to be included in the
-StandardElastoViscoPlasticity brick in the near future will be
+equations that involve porosity as an additional state variable.
+
+Many constitutive equations have been proposed in the literature, but
+only a few are available in finite element solvers. To capitalize on
+these laws and provide a state-of-the-art, easy-to-use numerical
+implementation of constitutive equations for porous materials, the
+`MFront`'s `StandardElastoViscoPlasticity` brick was extended to porous
+materials a few years ago.
+
+First, this extension's capabilities will be reviewed in terms of
+ductile tearing predictions using different FEM solvers (`Cast3M`,
+`MANTA`, and `code_aster`) and `FFT` solvers (`AMITEX_FFTP`).
+
+Second, advanced constitutive equations to be included in the
+`StandardElastoViscoPlasticity` brick in the near future will be
 described.
 
 #   Identification of material parameters using a heterogeneous test and the FEMU method: application to a viscoplastic behavior law
@@ -157,7 +167,6 @@ described.
    - Univ. Bretagne Sud, UMR CNRS 6027, IRDL, Lorient F-56100, France
 - Sandrine Thuillier
    - Univ. Bretagne Sud, UMR CNRS 6027, IRDL, Lorient F-56100, France
-
 
 Numerical simulation, and in particular the finite element method, has
 become a central tool in the sheet metal forming industry.
@@ -230,14 +239,17 @@ the finite element library `FEniCS` via the `mgis.fenics` interface.
 - Goustan Bacquaert
    - EDF R&D
 
+![&nbsp;](img/CZM.pdf){width=75%}
+
 We present the implementation of a nonlinear Cohesive Zone Model (CZM)
-in MFront, designed to study the mechanical behavior of soil and rock
+in `MFront`, designed to study the mechanical behavior of soil and rock
 joints.
 
 The constitutive equations are solved using a dual Lagrangian approach.
 This allows us to consider properly rigid – plastic behaviours, in
 constrast to purely penalized approaches. 2D finite element simulations
-powered by code_aster demonstrate the robustness of the proposed model.
+powered by `code_aster` demonstrate the robustness of the proposed
+model.
 
 Furthermore, we extend the CZM framework to poromechanics, allowing for
 a fully coupled hydro-mechanical analysis.
@@ -264,4 +276,36 @@ with the `Manta` solver to test these different strategies, with the goal
 of improving the computational efficiency of phase-field approaches for
 brittle fracture and for high cycle fatigue crack propagation.
 
+# Coupling MFront and FEniCS for fully-coupled chemo-thermoporomechanical simulations of cement-based materials from early-age to hardened state
+
+- Maxime Pierre
+   - Navier, ENPC, Institut Polytechnique de Paris, Univ. Gustave Eiffel, CNRS, Champs-sur-Marne
+
+We present the implementation in `MFront` of a fully coupled
+chemo-thermoporomechanical model for cement-based materials, aimed at
+simulating the fluid-to-solid transition of the material from its early
+age to its hardened state. The model considers and a
+viscoelastic-viscoplastic mechanical behaviour and partial saturation of
+the pore space.
+
+`MTest` is used to simulate complex undrained oedometric experiments on
+early age class G cement paste and calibrate model parameters.
+
+In addition, `MFront` is coupled with the `FEniCS`/`dolfinx` finite
+element solver using the dolfinx_materials library to perform
+structure-scale simulations. Two practical applications are showcased.
+
+The first regards 3D printing of concrete, where we show how our
+framework is able to predict failure during printing and the impact of
+environmental conditions on hardened properties.
+
+The second pertains to cementing of deep wells, in particular for
+offshore \(CO_{2}\) sequestration, in which both the initial stress
+state of the cement sheath of the well and thermal cycling due to
+injection are crucial for well integrity.
+
 # References
+
+<!--
+Lei Liu, Chalmers University of Technology
+-->
