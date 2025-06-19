@@ -141,6 +141,8 @@ behaviour with `code_aster` computations.
 - Thomas Helfer
    - CEA Cadarache, DES, IRESNE, DEC, SESC, LMCP, 13108 St Paul lez Durance, France
 
+![&nbsp;](img/CT_GTN.png){width=50% align=center}
+
 The nucleation, growth, and coalescence of voids are major physical
 mechanisms involved in the ductile fracture of metal alloys. Modeling
 this failure mode and predicting ductile tearing requires constitutive
@@ -204,17 +206,20 @@ propagation of cracks in brittle materials. Among these, the phase-field
 method has undergone significant extensions to better reflect physical
 phenomena. These developments include the incorporation of anisotropic
 fracture energy landscapes, coupling with plastic deformation mechanisms
-[1], and interactions with diffusing chemical species.
+[@brach_phase-field_2019], and interactions with diffusing chemical
+species.
 
 In this seminar, we narrow our focus to the microstructural scale,
 particularly in materials where brittle fracture is driven by localized
 plastic activity such as silicon-iron alloys, tungsten, and steels at
-cryogenic temperatures. Foundational studies by Hall [2] and Petch [3]
-demonstrated the influence of grain size on yield and fracture strength,
-highlighting prominent size effects. However, the impact of grain
-boundaries and grain size on fracture toughness remains less well
-understood, especially given the observed non-monotonic relationship
-between grain size and fracture toughness in the micrometer range [4].
+cryogenic temperatures. Foundational studies by Hall
+[@hall_deformation_1951] and Petch [@petch_fracture_1954] demonstrated
+the influence of grain size on yield and fracture strength, highlighting
+prominent size effects. However, the impact of grain boundaries and
+grain size on fracture toughness remains less well understood,
+especially given the observed non-monotonic relationship between grain
+size and fracture toughness in the micrometer range
+[@reiser_elucidating_2020].
 
 We present recent progress in modeling the interplay between crystal
 plasticity and brittle fracture. Specifically, we examine how stress
@@ -228,11 +233,6 @@ observed during crack initiation and propagation in polycrystalline
 materials. Our approach employs a crystal plasticity constitutive
 behaviour implemented in `MFront`, which is seamlessly integrated with
 the finite element library `FEniCS` via the `mgis.fenics` interface.
-
-[1] Brach, S., Tanné, E., Bourdin, B., and Bhattacharya, K. Computer Methods in Applied Mechanics and Engineering 353 (2019): 44-65.  
-[2] Hall, E. O. Proceedings of the Physical Society. Section B 64.9 (1951): 747.  
-[3] Petch, N. J. Progress in Metal Physics 5 (1954): 1-52.  
-[4] Reiser, J., and Hartmaier, A. Scientific reports 10.1 (2020): 2739.
 
 # MFront Cohesive Zone Models for code_aster
 
@@ -276,7 +276,7 @@ with the `Manta` solver to test these different strategies, with the goal
 of improving the computational efficiency of phase-field approaches for
 brittle fracture and for high cycle fatigue crack propagation.
 
-# Coupling MFront and FEniCS for fully-coupled chemo-thermoporomechanical simulations of cement-based materials from early-age to hardened state
+# Coupling MFront and FEniCS for fully-coupled chemo-thermo-poro-mechanical simulations of cement-based materials from early-age to hardened state
 
 - Maxime Pierre
    - Navier, ENPC, Institut Polytechnique de Paris, Univ. Gustave Eiffel, CNRS, Champs-sur-Marne
@@ -304,7 +304,7 @@ offshore \(CO_{2}\) sequestration, in which both the initial stress
 state of the cement sheath of the well and thermal cycling due to
 injection are crucial for well integrity.
 
-# References
+# References {.unnumbered}
 
 <!--
 Lei Liu, Chalmers University of Technology
