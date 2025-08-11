@@ -304,6 +304,36 @@ offshore \(CO_{2}\) sequestration, in which both the initial stress
 state of the cement sheath of the well and thermal cycling due to
 injection are crucial for well integrity.
 
+# Using MFront Generic Behaviours for Swelling Geomaterials in `OpenGeoSys`
+
+- Aqeel Afzal Chaudhry
+- Jörg Buchwald
+- Christian Bert Silbermann
+  - Geotechnical Institute, Technische Universität Bergakademie
+    Freiberg, Gustav-Zeuner-Str. 1, 09599 Freiberg, Germany
+- Christoph Lehmann
+  - Environmental Informatics, Helmholtz-Centre for Environmental
+    Research -- UFZ, Leipzig, Germany
+- Thomas Nagel
+  - Institute of Geotechnics, Gustav Zeuner 1, TU Bergakademie Freiberg,
+    Freiberg, Germany
+
+
+Hydro-mechanical coupling in geomaterials can go beyond the classical
+effective stress principle, leading to much stronger coupling between
+the pore-pressure and stress-strain-fields. For such materials, the
+evolution of hydraulic and mechanical state variables can benefit from a
+joint integrator.
+
+We have extended OpenGeoSys by a process implementation that interfaces
+with the DefaultGenericBehaviour and ImplicitGenericBehaviour classes in
+MFront.
+
+In this contribution we demonstrate first implementations of elastic and
+inelastic models coupled to different hydraulic features, notably
+swelling. Extensions to multiple porosity levels are discussed.
+ 
+
 # References {.unnumbered}
 
 <!--
