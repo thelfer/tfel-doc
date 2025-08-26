@@ -332,8 +332,42 @@ MFront.
 In this contribution we demonstrate first implementations of elastic and
 inelastic models coupled to different hydraulic features, notably
 swelling. Extensions to multiple porosity levels are discussed.
- 
 
+# GLRC_HEGIS: homogeneous reinforced concrete behaviour for shells
+
+- Miquel Huguet Aguilera 
+  - Egis SL nucléaire, Montreuil
+- Olivier Lherminier
+  - Egis SL nucléaire, Montreuil
+- Lucas Turgné 
+  - Egis SL nucléaire, Montreuil
+
+![](img/GLRC_HEGIS.png){width=100%}
+
+For numerical simulations at the building scale, shell elements are
+commonly used to model floors and walls. To realistically capture the
+non-linear behaviour of reinforced concrete, the `GLRC_HEGIS` law was
+developed as part of H. Miquel's doctoral thesis. This homogenised
+reinforced concrete model incorporates four dissipative mechanisms,
+enabling an accurate description of the non-linear response of
+reinforced concrete structures subjected to cyclic loading. Although
+initially implemented in `code_aster`, its transfer to other
+computational software remains challenging.
+
+We present here the transcription of the governing equations into
+`MFront`, in plane stress, for plasticity surfaces managed by the status
+method. Several strategies have been introduced to enhance the numerical
+robustness of the model compared to its original implementation in
+`code_aster`.
+
+The results show good agreement with reference simulations, confirming
+the validity of the implementation. Comparisons between different
+solvers highlight the performance and reliability of the adapted model.
+This work represents an important step towards broader portability of
+the `GLRC_HEGIS` law, paving the way for its integration into diverse
+computational environments and its generalised use in non-linear
+structural analyses.
+ 
 # References {.unnumbered}
 
 <!--
