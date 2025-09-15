@@ -381,6 +381,8 @@ structural analyses.
 - Martin Fagerström
   - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
 
+![](img/Cell_wall_foam_H100.png){width=100%}
+
 This presentation will demonstrate an original usage of `FEniCS` and
 `MFront` to investigate the complex micromechanical behaviour of
 shell-based cellular materials. Cellular materials are being widely
