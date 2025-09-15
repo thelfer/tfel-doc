@@ -367,7 +367,48 @@ This work represents an important step towards broader portability of
 the `GLRC_HEGIS` law, paving the way for its integration into diverse
 computational environments and its generalised use in non-linear
 structural analyses.
- 
+
+# Micromechanical modelling of elasto-plastic behaviour of shell-based cellular materials by coupling `FEniCS` with `MFront`
+
+- Lei Liu
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+- Fang Liu
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+- Dan Zenkert
+  - KTH Royal Institute of Technology, SE-10044 Stockholm, Sweden
+- Malin Åkermo
+  - KTH Royal Institute of Technology, SE-10044 Stockholm, Sweden
+- Martin Fagerström
+  - Chalmers University of Technology, SE-41296 Gothenburg, Sweden
+
+This presentation will demonstrate an original usage of `FEniCS` and
+`MFront` to investigate the complex micromechanical behaviour of
+shell-based cellular materials. Cellular materials are being widely
+utilized due to their appealing specific mechanical properties with
+respect to low density. In particular, shell-based cellular materials
+often exhibit much superior mechanical properties than beam-based ones,
+thus gaining more attention. In order to understand the deformation and
+failure mechanisms of shell-based cellular materials, micromechanical
+modelling is performed.
+
+A recently developed computational homogenization framework is adopted
+[@liu_mesostructural_2025]. The macroscale behaviour follows a solid
+continuum description. At the microscale, a representative volume
+element (RVE) resolving individual cells is modelled, with the cell
+walls described as Reissner-Mindlin shells in a finite rotation setting
+[@campello_triangular_2003]. The base material behaviour is described
+using an isotropic elasto-plastic model and integrated through the
+thickness to obtain the stress resultants [@bleyer_numerical_2016],
+which is implemented through `MFront`. Different loading conditions are
+applied by prescribing macroscale deformation gradients.
+
+Numerical simulations of different cellular materials are conducted
+through `FEniCS`. The results show that the the cell wall membrane
+deformation dominates the initial elastic region. Both the cell wall
+elastic buckling and plastic collapse can lead to the failure of
+shell-based cellular materials, with the competition in between strongly
+depending on the relative density. A critical transition relative
+density is identified.
 # References {.unnumbered}
 
 <!--
