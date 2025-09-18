@@ -411,6 +411,33 @@ elastic buckling and plastic collapse can lead to the failure of
 shell-based cellular materials, with the competition in between strongly
 depending on the relative density. A critical transition relative
 density is identified.
+
+# Modélisation de la fissuration par Corrosion Sous Contrainte induite par l’Iode (CSC-I) des alliages de zirconium avec `MFront`
+
+- David Le Boulch
+  -  CEA Saclay, DES, ISAS, DRMP, SEMI, LCMI, 91191 Gif-sur-Yvette, France
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
+
+![](img/LeBoulch.png){width=100%}
+
+Afin de simuler la fissuration par CSC-I des alliages de zirconium, le
+modèle d’endommagement de KACHANOV a été implanté dans `MFront`. Ce
+modèle permet de simuler l’amorçage et la propagation d’une fissure
+fragile dans un matériau. Pour cela, il a été couplé à différentes lois
+de comportement viscoplastiques des alliages de zirconium dans `MFront`.
+
+De plus, les aspects chimiques de la CSC-I sont pris en compte à l’aide
+d’un couplage avec un modèle de diffusion simplifié de l’iode dans le
+zirconium. Ce modèle de diffusion est implanté dans le code de calculs
+par élément-finis `Cast3M`.
+
+Le modèle de KACHANOV a été appliqué à la simulation d’essais de
+pression interne sous iode de portions de gaine de crayons combustible
+en alliage de zirconium, avec `Cast3M`. Ces simulations se placent dans
+le cadre de la mécanique des milieux continus et homogènes. Un exemple
+de simulation à l’échelle polycristalline est présenté également.
+
 # References {.unnumbered}
 
 <!--
