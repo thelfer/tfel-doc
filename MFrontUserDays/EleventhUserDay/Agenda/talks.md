@@ -412,7 +412,7 @@ shell-based cellular materials, with the competition in between strongly
 depending on the relative density. A critical transition relative
 density is identified.
 
-# Modélisation de la fissuration par Corrosion Sous Contrainte induite par l’Iode (CSC-I) des alliages de zirconium avec `MFront`
+# Modelling of Iodine induced Stress Corrosion Cracking (I-SCC) of zirconium alloys with MFRONT. 
 
 - David Le Boulch
   -  CEA Saclay, DES, ISAS, DRMP, SEMI, LCMI, 91191 Gif-sur-Yvette, France
@@ -421,22 +421,21 @@ density is identified.
 
 ![](img/LeBoulch.png){width=100%}
 
-Afin de simuler la fissuration par CSC-I des alliages de zirconium, le
-modèle d’endommagement de KACHANOV a été implanté dans `MFront`. Ce
-modèle permet de simuler l’amorçage et la propagation d’une fissure
-fragile dans un matériau. Pour cela, il a été couplé à différentes lois
-de comportement viscoplastiques des alliages de zirconium dans `MFront`.
+In order to simulate I-SCC of zirconium alloys, the KACHANOV damage
+model has been implemented in `MFront`.
 
-De plus, les aspects chimiques de la CSC-I sont pris en compte à l’aide
-d’un couplage avec un modèle de diffusion simplifié de l’iode dans le
-zirconium. Ce modèle de diffusion est implanté dans le code de calculs
-par élément-finis `Cast3M`.
+This model allows to simulate the initiation and the propagation of a
+fragile crack in a material. For this, it was coupled with different
+viscoplastic behavior laws of zirconium alloys in `MFront`. In addition,
+the chemical aspects of CSC-I are taken into account using a coupling
+with a simplified diffusion model of iodine in zirconium. This diffusion
+model is implemented in the `Cast3M` finite element calculation code.
 
-Le modèle de KACHANOV a été appliqué à la simulation d’essais de
-pression interne sous iode de portions de gaine de crayons combustible
-en alliage de zirconium, avec `Cast3M`. Ces simulations se placent dans
-le cadre de la mécanique des milieux continus et homogènes. Un exemple
-de simulation à l’échelle polycristalline est présenté également.
+The KACHANOV model was applied to simulate internal pressure tests,
+carried out under iodine vapour, of zirconium alloy fuel rod cladding
+portions, with `Cast3M`. These simulations are made in the frame of
+continuous mechanics of homogeneous media. An example of simulation at
+the polycrystalline scale is also presented.
 
 # References {.unnumbered}
 
