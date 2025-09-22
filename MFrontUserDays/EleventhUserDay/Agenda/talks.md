@@ -437,6 +437,43 @@ portions, with `Cast3M`. These simulations are made in the frame of
 continuous mechanics of homogeneous media. An example of simulation at
 the polycrystalline scale is also presented.
 
+# Pressure-dependent homogenization of a pressurized cellular solid with Gent material model
+
+- Paul Lacorre
+  - Aix Marseille Univ, CNRS, ISM, Marseille, France
+- Louison Fiore
+  - Aix Marseille Univ, CNRS, ISM, Marseille, France
+- Jean-Marc Linares
+  - Aix Marseille Univ, CNRS, ISM, Marseille, France
+- Loïc Tadrist
+  - Aix Marseille Univ, CNRS, ISM, Marseille, France
+
+![](img/lacorre_cellular_solid_Gent.jpg){width=100%}
+
+The stiffness of living tissues changes when hydrated or dehydrated: can
+we design a material with programmable properties arising from changes
+of internal pressure?
+
+Drawing inspiration from plant tissues where a large number of cells are
+pressurized by water ("osmotic" or "turgor" pressure), we designed a
+cellular material made of silicon. Its simplified geometry consists of
+an array of hollow cubic cells connected to individual pressure valves
+that can be controlled independently.
+
+The inflation of the artificial tissue is simulated in large
+deformations using the finite element program [`Code_Aster`
+(EDF)](https://code-aster.org). The intracellular pressure is modeled as
+a follower force. Specific periodic boundary conditions are defined to
+allow the volume to expand freely during inflation. In order to recreate
+the strain-hardening effects of polymers, we implemented the Gent
+hyperelastic behavior in `MFront`.
+
+We conducted a parametric study to explore the space of macroscopic
+behaviors this design can achieve, allowing to lower or increase the
+apparent material properties. The impact of inflation patterns and
+defects (punctured cells) is studied. This device can also be used as a
+soft actuator.
+
 # References {.unnumbered}
 
 <!--
