@@ -163,7 +163,7 @@ Second, advanced constitutive equations to be included in the
 `StandardElastoViscoPlasticity` brick in the near future will be
 described.
 
-#   Identification of material parameters using a heterogeneous test and the FEMU method: application to a viscoplastic behavior law
+# Identification of material parameters using a heterogeneous test and the FEMU method: application to a viscoplastic behavior law
 
 - Thibault Barret
    - Univ. Bretagne Sud, UMR CNRS 6027, IRDL, Lorient F-56100, France
@@ -475,7 +475,3 @@ defects (punctured cells) is studied. This device can also be used as a
 soft actuator.
 
 # References {.unnumbered}
-
-<!--
-Lei Liu, Chalmers University of Technology
--->

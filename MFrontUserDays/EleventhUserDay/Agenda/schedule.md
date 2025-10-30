@@ -1,7 +1,7 @@
 ---
 title: Agenda of the tenth `MFront` User Meeting
-author: Thomas Helfer, Maxence Wangermez
-date: 02/10/2023
+author: Thomas Helfer, Antoine Martin
+date: 30/10/2025
 toc: false
 toc-depth: 1
 numbersections: true
@@ -19,27 +19,29 @@ bibliography: bibliography.bib
 csl: iso690-numeric-en.csl
 ---
 
--    [ 9h00 -  9h30] Welcome breakfast
--    [ 9h30 -  9h50] Back to basics: implementing point-wise models with `MFront
--    [ 9h50 - 10h10] Zirconium alloys high temperature oxidation laws determination and MFront implementation
+-    [ 8h45 -  9h15] Welcome breakfast
+-    [ 9h15 -  9h30] Forewords by SIMVIA
+-    [ 9h30 -  9h50] Overview of `TFEL-5.1`
+-    [ 9h50 - 10h10] The new `TFEL/Material/Homogenization` library, application to 'mean-field' homogenization schemes on particulate and polycrystalline composites
 
 **Break**
 
--    [10h30 - 10h50] MFront/MGIS for the solution of a fictitious non-linear grid problem in Arbitrary Lagrange-Euler CFD simulations
--    [10h50 - 11h10] Un exemple de modèle de comportement d'un matériau multiphasé couplant mécanique élastoviscoplastique et transformations de phase métallurgiques
--    [11h10 - 11h30] Improving the robustness of implicit schemes using homotopy-based algorithms
--    [11h30 - 11h50] Automatic differentiation with Enzyme
+-    [10h30 - 10h50] MFront Cohesive Zone Models for code_aster
+-    [10h50 - 11h10] Constitutive equations for porous ductile materials in `MFront`
+-    [11h10 - 11h30] GLRC_HEGIS: homogeneous reinforced concrete behaviour for shells
+-    [11h30 - 11h50] Crystal plasticity coupled to brittle fracture
+-    [11h50 - 12h10] Modelling of Iodine induced Stress Corrosion Cracking (I-SCC) of zirconium alloys with MFRONT. 
 
 **Launch break**
 
--    [13h30 - 13h50] Overview of `TFEL-5.0`
--    [13h50 - 14h10] Modeling Zy-4 cladding failure during a Reactivity Initiated Accident with a GTN non local damage model
--    [14h10 - 14h30] SICRAC, a creep simulation tool for the justification of irradiated fuel rod integrity in back-end conditions
--    [14h30 - 14h50] Advanced material modeling in FEniCSx
+-    [13h30 - 13h50] Elasto-Visco-Plastic behavior law for irradiated low alloy steels
+-    [13h50 - 14h10] Pressure-dependent homogenization of a pressurized cellular solid with Gent material model
+-    [14h10 - 14h30] Coupling MFront and FEniCS for fully-coupled chemo-thermo-poro-mechanical simulations of cement-based materials from early-age to hardened state
+-    [14h30 - 14h50] Micromechanical modelling of elasto-plastic behaviour of shell-based cellular materials by coupling `FEniCS` with `MFront`
 
 **Break**
 
--    [15h30 - 15h50] An implementation of a unilateral constitutive law for a dynamic damage phase field modeling owing to a FEniCSx/MFront association
--    [15h50 - 16h10] Micromechanical modelling of closed-cell polymer foams under compression by coupling `FEniCS` with `MFront`
--    [16h10 - 16h30] Implementation of Hoek-Brown Failure Criterion in MFront and its application to the rock with up to 3 ubiquitous joint sets
+-    [15h30 - 15h50] Using MFront Generic Behaviours for Swelling Geomaterials in `OpenGeoSys`
+-    [15h50 - 16h10] Identification of material parameters using a heterogeneous test and the FEMU method: application to a viscoplastic behavior law
+-    [16h10 - 16h30] Resolution strategies for brittle and fatigue phase field damage model
 -    [16h30 - 17h00] Conclusions and discussions
