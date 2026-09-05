@@ -40,8 +40,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 - Dmitri Naumov
 - Thomas Nagel
 
-Institute of Geotechnics, Gustav Zeuner 1, TU Bergakademie Freiberg,
-Freiberg, Germany
+Institut für Geotechnik, TU Bergakademie Freiberg, Gustav-Zeuner-Str. 1, 09599 Freiberg, Germany
 
 ![](img/lpanel_damage_field.png)
 
@@ -62,7 +61,7 @@ choice of weighting functions, and availability within all coupled
 mechanical processes. We demonstrate the application of the scheme to
 models that achieve softening via damage evolution or softening laws
 related to plastic state variables in 1D and 2D settings. Comparisons are made
-to a previous implementation without MFront interaction (Fig. )
+to a previous implementation without MFront interaction.
 
 The final application case is a transversely isotropic clay model
 accounting for damage as well as elastic, viscous and plastic
