@@ -42,7 +42,7 @@ pandoc -f markdown+tex_math_single_backslash --filter pandoc-crossref --citeproc
 
 Institut für Geotechnik, TU Bergakademie Freiberg, Gustav-Zeuner-Str. 1, 09599 Freiberg, Germany
 
-![](img/lpanel_damage_field.png)
+![](img/Nonlocal_OGS_MFront.png)
 
 Nonlocal integration is one possible regularization strategy used in the
 modeling of softening geomaterials
