@@ -114,7 +114,7 @@ OperaHPC Project, co-funded by the European Union.
 > - <https://thelfer.github.io/tfel/web/release-notes-5.2.html>
 > - <https://thelfer.github.io/mgis/web/release-notes-3.2.html>
 
-# Intégration du comportement de composites à fibres dans le calcul de structure à partir de tenseurs morphologiques
+# Efficient multiscale simulation of an industrial fiber-reinforced composite using pre-computed morphological tensors
 
 - Antoine Martin
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
