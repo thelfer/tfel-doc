@@ -73,7 +73,7 @@ deformation mechanisms.
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LDOP, 13 108 St Paul lez Durance, France.
   - Aix-Marseille University, Mathematics and Computer Science Doctoral School, France.
 
-![&nbsp;](img/TDLS_tiled_LU_GPU.png){width=100%}
+![&nbsp;](img/TDLS_tiled_LU_GPU.png)
 
 In a mechanical simulation, the behaviour is integrated at every
 integration point, independently of the others. This makes behaviour
