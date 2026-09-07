@@ -320,23 +320,48 @@ conservative.
 - Lionel Gélébart
 - Yaovi Amouzou-Adoun
 
+# MFront interface with MANTA, an open source explicit implicit multiphysics solver for industry and research applications
 
-<!--
-# ??
+- Adrien Jaccon
+  - CEA Saclay, DES, ISAS, DM2S, SEMT, LM2S, 91191 Gif-sur-Yvette, France
+
+MANTA is a code developped by EDF and CEA designed to handle a large
+scope of applications. The code handles the explicit and implicit
+modeling of structural mechanics, heat transfer and fluid dynamics
+Furthermore it is designed to enable the modeling of most problems that
+can be written as the resolution of PDE using a mesh based approach, as
+well as the possible coupling between several of those physics.
+
+Behind the scenes, a majority of the physics modules that require the
+integration of specific constitutive behaviors are handled by MFront.
+This talk will focus on how MFront is integrated into MANTA, and will
+present some application cases illustrating the benefits and
+capabilities of this approach.
+
+# Implementation of Neural Network Constitutive Laws Inside MFront
 
 - Marius Duvillard
   - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
+- Thomas Helfer
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
 
-# ??
+Neural networks are increasingly used as data-driven constitutive laws,
+learned directly from experimental or numerical data. State-of-the-art
+formulations now go beyond simple stress predictions: by introducing
+internal variables and enforcing thermodynamically consistent
+structures, such as the framework of generalized standard materials,
+they can capture history-dependent behaviours [@flaschel_convex_2025].
 
-- Adrien Jaccon, 
+In this presentation, we show how to integrate such models in `MFront`.
+The laws are first defined and trained with the `jaxmat` library, built
+on `jax` and Python [@jaxmat_zenodo]. Trained models are then exported
+to `MFront`, where they provide both the stress prediction and the
+consistent tangent operator.
 
-
-#  ???
-
-- Basile Marchand (intégration MFront/Aster)
-
--->
+The models can then be used at the material point level with `MTest`, or
+at the structure scale with any `MFront`-compatible solver (`MFEM`,
+`FEniCS`, ...). To illustrate the approach, we present two examples: a
+visco-elastic law and a viscoplastic law with hardening.
 
 # Open-source implementation of a flexible nonlocal scheme using MFront/OpenGeoSys
 
@@ -419,5 +444,13 @@ in the development version of `TFEL` (master branch) and will be part of
 behaviours that call [`TDLS`](https://github.com/trsxvz/TDLS/tree/main)
 in place of its default linear solve routine. We will show how to enable
 it and what to expect.
+
+<!--
+
+#  ???
+
+- Basile Marchand (intégration MFront/Aster)
+
+-->
 
 # References {.unnumbered}
