@@ -103,10 +103,10 @@ This work was motivated by GPUs, but
 portable header-only `C++-20` library. It can run on all kinds of GPUs,
 but also on CPUs, where it performs well too.
 [`TDLS`](https://github.com/trsxvz/TDLS/tree/main) support is available
-in the development version of `TFEL` and will be part of the upcoming
-`TFEL` 5.2 release. When enabled, `MFront` generates behaviours that
-call [`TDLS`](https://github.com/trsxvz/TDLS/tree/main) in place of its
-default linear solve routine. We will show how to enable it and what to
-expect.
+in the development version of `TFEL` (master branch) and will be part of
+`TFEL` releases from 5.2 onwards. When enabled, `MFront` generates
+behaviours that call [`TDLS`](https://github.com/trsxvz/TDLS/tree/main)
+in place of its default linear solve routine. We will show how to enable
+it and what to expect.
 
 # References {.unnumbered}
