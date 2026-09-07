@@ -69,9 +69,13 @@ deformation mechanisms.
 
 # The `TDLS` library: fast tiled linear solvers for implicit `MFront` behaviours
 
-- Tristan Chenaille
-  - CEA Cadarache, IRESNE, DES, DEC, SESC, LDOP, 13 108 St Paul lez Durance, France.
-  - Aix-Marseille University, Mathematics and Computer Science Doctoral School, France.
+- Tristan Chenaille¹,²
+- Francesca Cuteri¹
+- Raphaël Prat¹
+- Guillaume Latu¹
+
+1. CEA Cadarache, IRESNE, DES, DEC, SESC, LDOP, 13 108 St Paul lez Durance, France.
+2. Aix-Marseille University, Mathematics and Computer Science Doctoral School, France.
 
 ![&nbsp;](img/TDLS_tiled_LU_GPU.png)
 
