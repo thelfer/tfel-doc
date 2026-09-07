@@ -123,6 +123,8 @@ OperaHPC Project, co-funded by the European Union.
 - Mhadji Abdoussalam
   - Institut Pprime
 
+![](img/AMartin.png)
+
 In this talk we focus on the implementation of a multiscale method for
 simulating the behaviour of a fiber-reinforced thermoplastic industrial
 composite. We successfully account for the complex geometry of the fiber
@@ -260,7 +262,58 @@ help and test the interface.
 # Simulation of Static Strain Ageing and prediction of its impact on the fracture toughness properties of C-Mn steel welds
 
 - Ronan Riverie
+  - Université de Lyon, INSA Lyon, MATEIS – UMR CNRS 5510 F-69621 Villeurbanne Cedex, France
   - CEA Saclay, DES, ISAS, DM2S, SEMT, LISN, 91191 Gif-sur-Yvette, France
+- Déborah Clément
+  - Université Paris-Saclay, CEA, Service d'Etudes Mécaniques et Thermiques (SEMT), 91191, Gif-sur-Yvette, France
+- Ghassen Ben Salem
+  - Framatome, Ingénierie mécanique (DTIM), 92084 Paris la Défense Cedex, France 
+- Stéphane Marie
+  - Framatome, Ingénierie mécanique (DTIM), 92084 Paris la Défense Cedex, France 
+- Véronique Massardier
+  - Université de Lyon, INSA Lyon, MATEIS – UMR CNRS 5510 F-69621 Villeurbanne Cedex, France
+- Sylvain Dancette
+  - Université de Lyon, INSA Lyon, MATEIS – UMR CNRS 5510 F-69621 Villeurbanne Cedex, France
+
+As-welded C-Mn steel joints from the Main Steam Lines (MSLs) of
+Pressurised Water Reactors (PWRs) are sensitive to Static Strain Ageing
+(SSA). At the microstructural scale, this phenomenon relies on the
+segregation of nitrogen solutes to dislocations during an ageing heat
+treatment subsequent to a prestraining mechanical treatment.
+Macroscopically, the resulting dislocation pinning affects the overall
+tensile behaviour, leading to material hardening and the manifestation
+of plastic instabilities, specifically the Lüders phenomenon.
+
+Capitalising on the extensive experimental campaign, comprising tensile
+and fracture toughness test data, a dedicated phenomenological
+transferability framework was developed to numerically predict, via
+Finite Element (FE) simulations, the impact of SSA on the risk of
+brittle failure using the Beremin model. This approach required
+indirectly accounting for the thermomechanical history across each
+metallurgical state: as-welded, strained and strain aged, via the
+integration of the local stress field governed by a specific
+constitutive law.
+
+The effects of SSA on the material behaviour were modelled using the
+elastic-viscoplastic KEMC framework, which includes an extra
+ageing-induced hardening contribution governed by the relaxation of an
+internal ageing time to phenomenologically account for solute
+segregation at dislocations. This model was further updated to
+accommodate the peculiar responses exhibited following the complex
+prestraining mechanical history through the incorporation of nonlinear
+kinematic hardening. The local constitutive integration was implemented
+in MFront to be used in the Cast3M global FE solver. A dedicated
+three-step calibration process for the KEMC law, relying on tailored
+optimisation methods, was implemented to first fit the global hardening
+behaviour before identifying the ageing parameters that dictate both the
+Lüders peak and plateau, and finally calibrate the definitive hardening
+rule that drives the apparent macroscopic yield drop observed on the
+load-CMOD response for the strained state relative to the as-welded
+state. Finally, parameter identification and subsequent application of
+the Beremin model successfully reproduced the general isolated
+embrittlement effects induced by prestraining and the ageing heat
+treatment, yet the numerical predictions were found to be overly
+conservative.
 
 # « D’AMITEX à AMITEX* : des microstructures aux structures simples »
 
@@ -269,11 +322,6 @@ help and test the interface.
 
 
 <!--
-# Intégration du comportement de composites à fibres dans le calcul de structure à partir de tenseurs morphologiques
-
-- Antoine Martin
-  - CEA Cadarache, IRESNE, DES, DEC, SESC, LMCP, 13 108 St Paul lez Durance, France.
-
 # ??
 
 - Marius Duvillard
