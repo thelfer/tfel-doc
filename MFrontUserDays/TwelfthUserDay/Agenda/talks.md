@@ -85,25 +85,28 @@ memory. The performance of `MFront`'s linear solve routine suffers from
 this, and none of the existing GPU linear algebra libraries helps.
 
 This talk presents a tiled LU solver designed for this regime, which is
-embedded in the open-source `TDLS` library. Its main focus is to reduce
-register pressure and to enhance data locality and reuse. To do this,
-one thread solves one system. The matrix, the right-hand side and the
-pivots may each live in registers or in remote memory. The matrix is
-processed as a grid of small square tiles. Wherever the rest lives, the
-tiles of the current step are held in registers. Furthermore, pivoting
-stays inside the current diagonal tile unless the best local candidate
-is too small. The performance gains are impressive: on an NVIDIA H100
-GPU, for a Norton viscoplastic behaviour with 12 unknowns, this solver
-accelerates the behaviour integration by a factor of about 6.
+embedded in the open-source
+[`TDLS`](https://github.com/trsxvz/TDLS/tree/main) library. Its main
+focus is to reduce register pressure and to enhance data locality and
+reuse. To do this, one thread solves one system. The matrix, the
+right-hand side and the pivots may each live in registers or in remote
+memory. The matrix is processed as a grid of small square tiles.
+Wherever the rest lives, the tiles of the current step are held in
+registers. Furthermore, pivoting stays inside the current diagonal tile
+unless the best local candidate is too small. The performance gains are
+impressive: on an NVIDIA H100 GPU, for a Norton viscoplastic behaviour
+with 12 unknowns, this solver accelerates the behaviour integration by a
+factor of about 6.
 
-This work was motivated by GPUs, but `TDLS` is released as a portable
-header-only `C++-20` library. It can run on all kinds of GPUs, but also
-on CPUs, where it performs well too. `TDLS` support is available in the
-development version of `TFEL` and will be part of the upcoming `TFEL`
-5.2 release. When enabled, `MFront` generates behaviours that call
-`TDLS` in place of its default linear solve routine. We will show how to
-enable it and what to expect.
-
-<https://github.com/trsxvz/TDLS>
+This work was motivated by GPUs, but
+[`TDLS`](https://github.com/trsxvz/TDLS/tree/main) is released as a
+portable header-only `C++-20` library. It can run on all kinds of GPUs,
+but also on CPUs, where it performs well too.
+[`TDLS`](https://github.com/trsxvz/TDLS/tree/main) support is available
+in the development version of `TFEL` and will be part of the upcoming
+`TFEL` 5.2 release. When enabled, `MFront` generates behaviours that
+call [`TDLS`](https://github.com/trsxvz/TDLS/tree/main) in place of its
+default linear solve routine. We will show how to enable it and what to
+expect.
 
 # References {.unnumbered}
