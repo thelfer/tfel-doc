@@ -67,4 +67,43 @@ The final application case is a transversely isotropic clay model
 accounting for damage as well as elastic, viscous and plastic
 deformation mechanisms.
 
+# The `TDLS` library: fast tiled linear solvers for implicit `MFront` behaviours
+
+- Tristan Chenaille
+  - CEA Cadarache, IRESNE, DES, DEC, SESC, LDOP, 13 108 St Paul lez Durance, France.
+  - Aix-Marseille University, Mathematics and Computer Science Doctoral School, France.
+
+<!-- image to come -->
+
+In a mechanical simulation, the behaviour is integrated at every
+integration point, independently of the others. This makes behaviour
+integration a good candidate for GPUs. However, implicit behaviours are
+typically integrated with a Newton method. Each of its iterations builds
+and solves a small linear system, which puts a lot of pressure on GPU
+registers. Variables that do not fit are then evicted to slow GPU
+memory. The performance of `MFront`'s linear solve routine suffers from
+this, and none of the existing GPU linear algebra libraries helps.
+
+This talk presents a tiled LU solver designed for this regime, which is
+embedded in the open-source `TDLS` library. Its main focus is to reduce
+register pressure and to enhance data locality and reuse. To do this,
+one thread solves one system. The matrix, the right-hand side and the
+pivots may each live in registers or in remote memory. The matrix is
+processed as a grid of small square tiles. Wherever the rest lives, the
+tiles of the current step are held in registers. Furthermore, pivoting
+stays inside the current diagonal tile unless the best local candidate
+is too small. The performance gains are impressive: on an NVIDIA H100
+GPU, for a Norton viscoplastic behaviour with 12 unknowns, this solver
+accelerates the behaviour integration by a factor of about 6.
+
+This work was motivated by GPUs, but `TDLS` is released as a portable
+header-only `C++-20` library. It can run on all kinds of GPUs, but also
+on CPUs, where it performs well too. `TDLS` support is available in the
+development version of `TFEL` and will be part of the upcoming `TFEL`
+5.2 release. When enabled, `MFront` generates behaviours that call
+`TDLS` in place of its default linear solve routine. We will show how to
+enable it and what to expect.
+
+<https://github.com/trsxvz/TDLS>
+
 # References {.unnumbered}
