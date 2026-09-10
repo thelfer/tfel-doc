@@ -111,3 +111,54 @@ The aim of this paper is to give some insights about some innovative features in
    year = {2003},
    school = {EPFL}
 }
+
+@article{flaschel_convex_2025,
+    author = {Flaschel, Moritz and Steinmann, Paul and De Lorenzis, Laura and Kuhl, Ellen},
+    title = {Convex neural networks learn generalized standard material models},
+    journal = {Journal of the Mechanics and Physics of Solids},
+    volume = {200},
+    pages = {106103},
+    year = {2025},
+    doi = {10.1016/j.jmps.2025.106103}
+}
+
+@software{jaxmat_zenodo,
+    title = {jaxmat},
+    url = {https://zenodo.org/records/21268158},
+    year = {2025}
+}
+
+
+@misc{amouzou-adoun_robust_2026,
+	title = {A robust and versatile parallel {FFT}-based mechanical solver for general non-periodic and periodic boundary conditions},
+	url = {http://arxiv.org/abs/2607.05929},
+	doi = {10.48550/arXiv.2607.05929},
+	abstract = {General boundary conditions are implemented within a fast Fourier transform framework for linear and non-linear mechanical problems using small or finite transformation formulations. In the context of parallel computing (distributed memory), we present a framework that enables the combination of periodic and non-periodic (Dirichlet or Neumann) boundary conditions. Taking advantage of the link between non-periodic boundary conditions and the symmetries of the relevant components of the fluctuation displacement and stress fields, discrete trigonometric transforms are employed to adapt the classical Moulinec-Suquet fast Fourier transform approach. The present study employs an original displacement-based fixed-point algorithm in combination with a convergence acceleration method in order to solve boundary value problems. Finite difference approaches are used to build the discrete Green operators associated with a pre-conditioner (reference material), whose choice depends on the loading type and the small or finite transformation frameworks. The newly developed double tetrahedron scheme is employed to investigate non-periodic problems. Outcomes are compared to those of the classical hexahedral scheme. The robustness and computational efficiency of the presented parallel solver is demonstrated through numerical experiments of non-trivial loading scenarios (tension, bending, normal-mixed loading, torsion-bending), complex and densely discretized microstructures and diverse behavior laws (elasticity, isotropic plasticity, crystal plasticity), within small and finite transformation frameworks.},
+	number = {{arXiv}:2607.05929},
+	publisher = {{arXiv}},
+	author = {Amouzou-adoun, Yaovi Armand and Gélébart, Lionel and Flageul, Cédric and Wang, Yushan},
+	urldate = {2026-09-08},
+	date = {2026-07-07},
+	eprinttype = {arxiv},
+	eprint = {2607.05929 [cs.CE]},
+	keywords = {Crystal plasticity, Discrete Green operators, Discrete Trigonometric and Fourier transforms, Massively parallel simulations, Non-periodic boundary conditions, Small and Finite transformations, Computer Science - Computational Engineering, Finance, and Science},
+	file = {Preprint PDF:/home/th202608/.zotero/zotero/vzpzva46.default/zotero/storage/KHRDTHIA/Amouzou-adoun et al. - 2026 - A robust and versatile parallel FFT-based mechanical solver for general non-periodic and periodic bo.pdf:application/pdf;Snapshot:/home/th202608/.zotero/zotero/vzpzva46.default/zotero/storage/VPNNAEHL/2607.html:text/html},
+}
+
+
+@misc{gelebart_constrained_2026,
+	title = {Constrained minimization problems and {FFT}-based solvers: application to local Dirichlet boundary conditions and contact mechanics},
+	url = {http://arxiv.org/abs/2607.26082},
+	doi = {10.48550/arXiv.2607.26082},
+	shorttitle = {Constrained minimization problems and {FFT}-based solvers},
+	abstract = {The present paper focuses on a recent and active research axis to overcome the limitations of {FFT}-based solvers in order to apply various types of boundary conditions ({BCs}) and not only periodic {BCs}. A complete framework based on discrete trigonometric transforms ({DTTs}) of various types, possibly combined with discrete Fourier transform, has been proposed recently to account for any type of {BCs} defined per face of the unit-cell and per component of the displacement or traction vector. A parallel implementation by Amouzou-Adoun et al. recently proved its robustness and versatility. However, this approach is not able to account for a mix of {BCs} on a same face (for example Dirichlet {BC} on a part of a face and Neumann {BC} on the other part of the same face), neither to prescribe Dirichlet {BC} to points defined inside the domain, nor to define kinematic relations between displacement on different nodes. Starting from the displacement-based approach together with the use of {DTTs}, simple modifications are proposed to account for all these questions. The modified solver, first introduced from the viewpoint of discrete local equations, is then discussed from the perspective of constrained minimization with equality constraints and the introduction of Lagrange multipliers. Simulations of a compact tension-like specimen are performed and validated. To go further, the algorithm is then extended from equality constraints to account for inequality constraints to simulate contact mechanics. For the sake of validation, results obtained with a rigid spherical indenter with frictionless contact are compared to the Hertz theory for small ratios (indentation depth/sphere radius). Comparison between small and finite strains demonstrates increasing discrepancies when increasing this ratio. It is believed that the proposed methodology will significantly expand the field of applications of {FFT}-based solvers.},
+	number = {{arXiv}:2607.26082},
+	publisher = {{arXiv}},
+	author = {Gélébart, Lionel and Amouzou-Adou, Yaovi Armand},
+	urldate = {2026-09-08},
+	date = {2026-07-26},
+	eprinttype = {arxiv},
+	eprint = {2607.26082 [cs.CE]},
+	keywords = {Computer Science - Computational Engineering, Finance, and Science},
+	file = {Preprint PDF:/home/th202608/.zotero/zotero/vzpzva46.default/zotero/storage/SMGYMX4W/Gélébart et Amouzou-Adou - 2026 - Constrained minimization problems and FFT-based solvers application to local Dirichlet boundary con.pdf:application/pdf;Snapshot:/home/th202608/.zotero/zotero/vzpzva46.default/zotero/storage/VU89D4AC/2607.html:text/html},
+}
